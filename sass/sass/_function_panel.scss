@@ -1,0 +1,73 @@
+// function_panel setting
+.function_panel {
+    margin: .2em 0;
+    padding: .5em 0 .5em;
+    min-height: 35px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color:#666;
+    @include screen('mobile') {
+        margin: .6em 0;
+        padding: .5em 0 .5em;
+    }
+    ul{
+        overflow: hidden;
+        @include li-reset;
+        li{
+            float: left;
+            font-size:.875em;
+            padding: 0 .5em;
+            time, &.click_times span {
+                font-family:georgia;
+                font-size: 1.125em;
+                vertical-align: top;
+            }
+            &:before{
+                content:"";
+                display: inline-block;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                border:2px solid $color-gray;
+            }
+        }
+    }
+    .share {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .function {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .publish_time {
+        //float: left;
+        min-width: 100px;
+        display: block;
+        //margin-top: .6em;
+        color:#666;
+        span{
+            //font-size:.938em;
+
+            @include screen('mobile') {
+                display:none;
+            }
+        }
+        time{
+            font-family:georgia;
+            font-size:1.125em;
+            @include screen('mobile') {
+                font-size:.938em;
+            }
+        }
+        // &:before {
+        //     content: "";
+        //     display: inline-block;
+        //     width: 12px;
+        //     height: 12px;
+        //     top:.3em;
+        //     background: url(../images/basic/icon_time.png) no-repeat center center;
+        //     background-size: 12px;
+        // }
+    }
+}

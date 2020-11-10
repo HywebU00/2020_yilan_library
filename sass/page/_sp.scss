@@ -1,0 +1,91 @@
+.sp {
+    .mpSlider {
+        width: 70%;
+        margin: 0 auto;
+        @include screen("mobile"){
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .img-container {
+            @include aspect-ratio(2, 1);
+            img{
+                object-fit: contain;
+            }
+        }
+    }
+
+    .library_info {
+        .info_content {
+            padding: 1em 0;
+        }
+    }
+
+    .text_content {
+        p {
+            line-height: 2;
+        }
+        ul{
+            padding-left: 2em;
+        }
+        li {
+            padding: .5em 0;
+            line-height: 2;
+        }
+
+    }
+
+    >section,
+    >div {
+        &:last-child {
+            .map {
+                margin-bottom: -2em;
+            }
+
+        }
+    }
+
+    .writer {
+        .thumbnail {
+            border-top: 5px solid $primaryColor;
+            transition: all .3s;
+
+            &:hover {
+                border-color: darken($primaryColor, 10);
+            }
+        }
+
+        .caption {
+            text-align: center;
+            padding-bottom: .5em;
+        }
+    }
+
+    .main_pic {
+        float: none;
+        margin: 0px auto;
+        width: auto;
+        width: 70%;
+        max-width: 600px;
+        background: #F1F1F1;
+        overflow: hidden;
+        padding: .5em .5em .2em;
+        @include screen("mobile"){
+            width: 100%;
+        }
+    }
+    .sub_title{
+        padding:.4em 0;
+        border-bottom: 1px solid $primaryColor;
+        margin-bottom: .4em;
+        font-size: 1.125em;
+    }
+    .photo_album{
+        clear: both;
+        .photo_link{
+            padding:.5em;
+        }
+    }
+}
+
+

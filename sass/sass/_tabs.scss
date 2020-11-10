@@ -1,0 +1,191 @@
+.tabSet {
+    max-width: 100%;
+    margin: 0 auto;
+    padding:5px 0;
+    //overflow: hidden;
+    text-align: right;
+    @extend %clearfix;
+    @include screen('mobile') {
+        width: auto;
+        height: auto !important;
+    }
+}
+.tabs {
+    position: relative;
+    &>.tabItem {
+        //float: left;
+        position: relative;
+        display:inline-block;
+        font-size:1em;
+        line-height: 1;
+        font-weight: normal;
+        margin:0;
+        &.active{
+            @include screen('mobile'){
+                margin-top: 15px;
+            }
+            >a {
+                background: $importantColor;
+                color:#fff;
+            }
+            &:before{
+
+
+            }
+            &:after{
+                content:"";
+                position: absolute;
+                left:50%;
+                bottom:-14px;
+                width: 0px;
+                height: 8px;
+                margin-left: -10px;
+                border-style: solid;
+                border-width: 8px 9px 0 9px;
+                border-color: #dd340e transparent transparent transparent;
+                @include screen('mobile') {
+                 bottom:-10px; 
+             }
+         }
+     }
+
+     @include screen('mobile') {
+        float: none;
+        &>a {
+            width: 100% !important;
+            border-bottom: none;
+        }
+        &.active>a {
+            background: $importantColor;
+            color: #fff;
+        }
+    }
+    &>a {
+        display: block;
+        padding: .6em 1.8em;
+        text-align: center;
+            //background-color: #fff;
+            color: $color-word;
+            text-decoration: none;
+            position: relative;
+            transition: all .3s;
+            font-weight: bold;
+            border-radius: 3px;
+            @include text-overflow;
+            @include box-sizing;
+            @include screen('mobile'){
+                margin-bottom: .3em;
+                max-width:100%;
+                background-color: $primaryColor;
+                color:#fff;
+            }
+            &:hover {
+                background:$importantColor;
+                color:#fff;
+            }
+        }
+    }
+}
+//多組 可設定差異
+.example-2 {
+    .tabItem>a:hover {
+        background: $secondaryColor;
+    }
+    .tabItem.active>a {
+        background: $secondaryColor;
+    }
+}
+// 顯示content
+.active+.tabContent {
+    display: block;
+}
+.tabContent {
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    clear: both;
+    padding: 30px 20px;
+    display: none;
+    text-align: left;
+    @include screen('mobile') {
+        position: static;
+    }
+    ul {
+        @include li-reset;
+    }
+    li {
+        margin: 0;
+        padding: .9em .5em;
+        line-height: 1.6;
+        border-bottom: 1px #c5cab4 solid;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @include screen('mobile') {
+            @include text-overflow();
+        }
+        a {
+            @include aSetting_nocolor;
+        }
+        time {
+            display: inline-block;
+            margin: 0 1.5em;
+            font-size: .813em;
+            color: $primaryColor;
+        }
+    }
+}
+
+.regtab{
+    margin-bottom: 2em;
+    .ch-list{
+        line-height: 1.8em;
+        dt{
+            margin: .5em 0;
+        }
+    }
+    .tabSet {
+        text-align: left;
+        .tabContent{
+            background: #fff;
+            padding: 20px;
+        }
+        .tabs {
+            &>.tabItem {
+                font-size: 1.125em;
+                &.active{
+                    @include screen('mobile'){
+                        margin-top: 15px;
+                    }
+                    >a {
+                        background: $importantColor;
+                        color:#fff;
+                    }
+                    &:before{
+
+
+                    }
+                    &:after{
+                        content:"";
+                        position: absolute;
+                        left:50%;
+                        bottom:-14px;
+                        width: 0px;
+                        height: 8px;
+                        margin-left: -10px;
+                        border-style: solid;
+                        border-width: 8px 9px 0 9px;
+                        border-color: #dd340e transparent transparent transparent;
+                        @include screen('mobile') {
+                         bottom:-10px; 
+                     }
+                 }
+             }
+
+         }
+
+     }
+ } 
+
+}

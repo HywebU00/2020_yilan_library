@@ -1,0 +1,465 @@
+.lp {
+    padding-bottom:1em;
+    table {
+        td {
+            a {
+                @include aSetting_nocolor;
+            }
+
+            &.date {
+                text-align: center;
+                color: #666;
+
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+
+            &.num {
+                text-align: center;
+                color: #666;
+
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .questionnaire{
+        td{
+            text-align: center;
+        }
+        .btn{
+            color:#fff;
+        }
+        .name{
+            text-align: left;
+        }
+    }
+
+    .list {
+        &>ul,
+        ol {
+            list-style-type: none;
+            padding: 0;
+            border-top: 2px solid $primaryColor;
+            margin-top: 0;
+            &>li {
+                padding: 1em 0;
+                border-bottom: 1px solid #DDD;
+                position: relative; // outline: 1px solid blue;
+                overflow: hidden;
+                .tag {
+                    margin-left: 2em;
+                }
+
+                &>a {
+                    display: block;
+                    padding-left: 2em;
+                    padding-right: 8em;
+                    position: relative;
+                    line-height: 1.45em;
+                    color: $color-word;
+
+                    @include screen('mobile') {
+                        padding-right: 0;
+                    }
+
+                    &:hover {
+                        color: $aHover;
+                    }
+
+                    .num {
+                        width: 1.5em;
+                        text-align: right;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        &:after {
+                            content: ".";
+                            display: inline-block;
+                        }
+                    }
+                }
+
+                .dept {
+                    display: inline-block;
+                    font-size: .875em;
+                    background: #eee;
+                    padding: 0 .5em;
+                    color: lighten($color-word, 15);
+                    margin: .5em 1em 0 2em;
+                    &:hover {
+                        color: $color-word;
+                    }
+                }
+
+                time {
+                    display: block;
+                    color: #606060;
+                    font-size: .938em;
+                    position: absolute;
+                    right: 0;
+                    top: 1em;
+
+                    @include screen("mobile") {
+                        position: static;
+                        padding-left: 2em;
+                    }
+                }
+            }
+        }
+
+        .list_picture {
+            @include make-xs-column(12);
+            @include make-sm-column(4);
+            @include make-md-column(4);
+            @include make-lg-column(4);
+            @include gutter();
+        }
+
+        .list_text {
+            @include make-xs-column(12);
+            @include make-sm-column(8);
+            @include make-md-column(8);
+            @include make-lg-column(8);
+            @include gutter();
+            time{
+                position: static;
+            }
+            time{
+                padding-left: 0;
+            }
+            .dept{
+                margin: 0;
+            }
+            .brief{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                overflow: hidden;
+                max-height: 5.75em;
+            }
+        }
+        .list_title{
+            a{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                max-height: 3.125em;
+                color: $color-word;
+                font-weight: bold;
+                @include screen("mobile"){
+                    display:block;
+                    max-height: 100%;
+                }
+                &:hover{
+                    color:$secondaryColor;
+                }
+            }
+        }
+    }
+
+    .library_select {
+        button,
+        input[type="button"] {
+            // width: 10.37%;
+            // min-width:6.8em;
+            @include screen("tablet") {
+                width: 15.5%;
+            }
+        }
+        .pc_select{
+            text-align:left;
+            padding:0;
+        }
+    }
+
+    .link_grp {
+        padding-top: .83em;
+        ul{
+            list-style: none;
+            padding:0 0 10px 0;
+            width: 100%;
+
+            @include screen("mobile") {
+                display: block;
+                overflow: hidden;
+            }
+        }
+
+        li {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            color: $color-word;
+            text-align: center;
+            @include screen("mobile") {
+                display: block;
+                float: left;
+                width: auto;
+                white-space: nowrap;
+                margin: .25em 0;
+            }
+            a{
+                background: #fff;
+                color: darken($primaryColor, 10);
+                display: inline-block;
+                padding: .85em 1em;
+                transition: all .3s;
+                margin: 0 .2em;
+                min-width:5.5em;
+                @include screen("mobile"){
+                    margin:0 .25em;
+                }
+                &:hover,
+                &:focus,
+                &.active {
+                    background: $primaryColor;
+                    color: #fff;
+                }
+                &.active {
+                    position: relative;
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        bottom: 100%;
+                        background-color: #9a9a9a;
+                        height: 16px;
+                        width: 1px;
+                    }
+                    &:after{
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        top: 0;
+                        background-color: #fff;
+                        height: 8px;
+                        width: 1px;
+                    }
+                }
+            }
+        }
+    }
+    .instant_info{
+        ul{
+            overflow: hidden;
+            padding-left: 0;
+        }
+        li{
+            //@include make-xs-column(12);
+            @include make-sm-column(4);
+            @include make-md-column(4);
+            @include make-lg-column(4);
+            padding: .55em .55em .55em 100px!important;
+            // margin:0 .5em;
+            // background:$lightColor;
+            white-space: nowrap;
+            @include screen("tablet"){
+                padding-left: 70px!important;
+            }
+            .amount, .text{
+                text-align: left;
+            }
+            .amount{
+                display:inline-block;
+            }
+            &:after{
+                left: 0;
+            }
+        }
+    }
+}
+//圖片列表頁
+.album{
+    margin: 0 auto 1em;
+    ul {
+        @include li-reset;
+        li {
+            @include make_col(3, 1);
+            overflow: visible;
+            background: rgba(255, 255, 255, 0);
+
+            .thumbnail {
+                width: 100%;
+                max-width: 90%;
+                margin: 0 auto 1em;
+            }
+        }
+    }
+}
+//圖文列表頁(書本)
+.books_list{
+    margin-top: 2em;
+    ul{
+        @include li-reset;
+    }
+    li{
+        @include make-xs-column(6);
+        @include make-sm-column(4);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        @include gutter();
+        padding-bottom:30px;
+    }
+    @media screen and (max-width: 468px) {
+        li {
+            width: 100%;
+        }
+    }
+    .thumbnail{
+        &:hover {
+            .img-container {
+                img {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    .img-container{
+        @include aspect-ratio(1,1);
+    }
+    .caption{
+        height: 140px;
+        p{
+            margin:.5em 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+    }
+}
+.lost_list{
+    tbody{
+        background-color: #fff;
+    }
+}
+//活動列表頁
+.activities_list{
+    ul{
+        @include li-reset;
+        li{
+            @include make-xs-column(12);
+            @include make-sm-column(6);
+            @include make-md-column(6);
+            @include make-lg-column(6);
+            @include gutter();
+            margin: 15px 0;
+        }
+    }
+    .thumbnail{
+        position: relative;
+        width: 100%;
+
+        &:hover{
+            img{
+                transform: scale(1);
+            }
+        }
+        .library_tag{
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 10;
+            padding:.5em 1em;
+            color: #fff;
+            background: $secondaryColor;
+        }
+        .img-container{
+            @include aspect-ratio(2,1)
+        }
+        .caption{
+            width: 100%;
+            overflow: hidden;
+            padding:.5em 120px 1em 1em;
+            @include screen("mobile") {
+               padding:.5em 1em 1em;
+           }
+           h2, h3, h4{
+            margin-bottom: .5em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .time{
+            word-wrap: word-break;
+            font-size: .938em;
+            time{
+                font-size: 1em;
+                padding-right: .2em;
+                display: inline-block;
+            }
+            span{
+                @include screen("xs_mobile") {
+                    display: block;
+                }
+            }
+        }
+        ul{
+            @include screen("mobile"){
+                padding-right: 120px;
+            }
+            li{
+                width: 100%;
+                padding:0;
+                float: none;
+                margin:0;
+            }
+        }
+        .status{
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            right: 1em;
+            bottom: 1em;
+            background:#f1f1f1;
+            padding:.5em;
+            color: $color-word;
+            text-align: center;
+            &.register{
+             color: $primaryColor;
+         }
+         &.full{
+            color: lighten($color-word, 10);
+        }
+        span{
+            display: block;
+            padding:.2em;
+            font-size: .938em;
+        }
+        .people{
+            font-size:1.125em;
+            font-weight: bold;
+            font-family: Georgia;
+        }
+    }
+}
+}
+}
+//資訊列表
+.charts{
+    padding:2em 0;
+    .chart_container{
+        margin:2em 0;
+        padding:1em .5em;
+        border:1px solid $color-gray;
+        background:#fff;
+        .highcharts-credits{
+            display:none;
+        }
+    }
+}
+.chart_grp{
+    margin-bottom: 2em;
+    border-bottom: 1px solid #DDD;
+    .chart_container{
+        max-width:1100px;
+        min-width: 310px;
+        height:400px;
+        margin:0 auto;
+    }
+}

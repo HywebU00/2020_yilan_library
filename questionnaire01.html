@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>宜蘭縣公共圖書館</title>
+    <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries [if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- slick css-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css" />
+    <!-- hyUI css -->
+    <link rel="stylesheet" href="css/hyui.css">
+</head>
+
+<body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#center" tabindex="1">按Enter到主內容區</a>
+    <!-- wrapper Start -->
+    <div class="wrapper">
+        <!-- header Start -->
+        <header class="header">
+            <div class="container">
+                <a class="accesskey" href="#aU" id="aU" accesskey="U" title="網站標題" tabindex="2">:::</a>
+                <div class="nav_block">
+                    <!-- navigation Start -->
+                    <nav class="navigation">
+                        <ul>
+                            <li><a href="#">網站導覽</a></li>
+                            <li><a href="#">回首頁</a></li>
+                        </ul>
+                    </nav>
+                    <!-- navigation End -->
+                    <!-- 未登入狀態的登入btn -->
+                    <button class="login_btn">讀者登入</button>
+                    <!-- 已登入狀態顯示讀者姓名 -->
+                    <div class="loggedin" style="display: none">張家祥</div>
+                    <button class="search_btn">全站檢索</button>
+                </div>
+                <!--未登入狀態-->
+                <div class="reader_login">
+                    <form action="">
+                        <div class="form_inline">
+                            <button type="button" class="close">關閉</button>
+                            <div class="form_grp">
+                                <label for="username">帳號：</label>
+                                <input name="username" type="text" placeholder="請輸入帳號">
+                            </div>
+                            <div class="form_grp">
+                                <label for="password">密碼：</label>
+                                <input name="password" type="password" placeholder="請輸入密碼">
+                            </div>
+                            <div class="check_grp">
+                                <label><input type="checkbox">記住帳號</label>
+                            </div>
+                            <div class="btn_grp">
+                                <buttom type="button" class="logout">登入</buttom>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--讀者已登入狀態-->
+                <div class="reader_area" style="display: none">
+                    <form action="">
+                        <div class="form_inline">
+                            <button type="button" class="close">關閉</button>
+                            <p class="reader">歡迎，<span class="reader_name">張家祥</span></p>
+                            <ul>
+                                <li class="reader_borrow">借閱中<span>10</span></li>
+                                <li class="reader_overdue">逾期未歸<span>1</span></li>
+                                <li class="reader_violation">違規天數<span>1</span></li>
+                                <li class="reader_booked">預約<span>5</span></li>
+                                <li class="reader_arrival">已到館<span>2</span></li>
+                            </ul>
+                            <div class="btn_grp">
+                                <button class="my_study">個人書房</button>
+                                <button class="logout">登出</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Search Start -->
+                <div class="search">
+                    <form action="">
+                        <button type="button" class="close">關閉</button>
+                        <div class="form form_inline">
+                            <select name="" id="selectSample">
+                                <option value="" aria-labelledby="館藏查詢">館藏查詢</option>
+                                <option value="" aria-labelledby="選項二">選項二</option>
+                                <option value="" aria-labelledby="選項三">選項三</option>
+                            </select>
+                            <div class="form_grp">
+                                <label for="mustSameAsId">搜尋</label>
+                                <input name="username" id="mustSameAsId" type="text" placeholder="請輸入文字" accesskey="S">
+                                <input name="" type="submit" title="查詢" value="查詢">
+                            </div>
+                            <div class="btn_grp">
+                                <input name="" type="submit" value="進階搜尋">
+                            </div>
+                        </div>
+                    </form>
+                </div> 
+                <h1>
+                    <a href="index.html"><img src="images/logo.png" alt="宜蘭縣公共圖書館" /></a>
+                </h1>
+                <!-- noscript -->
+                <noscript> 您的瀏覽器不支援JavaScript語法，JavaScript語法並不影響內容的陳述。您可使用按鍵盤上的Ctrl鍵+ (+)鍵放大/(-)鍵縮小來改變字型大小；回到上一頁可使用瀏覽器提供的 Alt+左方向鍵(←) 快速鍵功能；列印可使用瀏覽器提供的(Ctrl+P)功能。您的瀏覽器，不支援script語法，若您的瀏覽器無法支援請點選此超連結 <a href="#">網站導覽</a>
+                </noscript>
+                <!-- menu Start -->
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">關於圖書館</a>
+                            <ul>
+                                <li><a href="#">局長的話</a></li>
+                                <li><a href="#">館舍介紹</a></li>
+                                <li><a href="#">宜蘭分區資源中心</a></li>
+                                <li><a href="#">鄉鎮圖書館</a></li>
+                                <li><a href="#">各科職掌</a></li>
+                                <li><a href="#">行事曆</a></li>
+                                <li><a href="#">宜蘭演藝廳</a></li>
+                                <li><a href="#">台灣戲劇館</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">最新消息</a>
+                            <ul>
+                                <li><a href="#">最新消息</a></li>
+                                <li><a href="#">活動報名</a></li>
+                                <li><a href="#">活動花絮</a></li>
+                                <li><a href="#">政令宣導</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">讀者服務</a>
+                            <ul>
+                                <li><a href="#">開館時間</a></li>
+                                <li><a href="#">圖書推薦</a></li>
+                                <li><a href="#">圖書館相關規定</a></li>
+                                <li><a href="#">場地預約</a></li>
+                                <li><a href="#">座位預約</a></li>
+                                <li><a href="#">導覽申請</a></li>
+                                <li><a href="#">線上問卷</a></li>
+                                <li><a href="#">活動報名</a></li>
+                                <li><a href="#">失物招領</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">館藏服務</a>
+                            <ul>
+                                <li><a href="#">圖書館館藏查詢</a></li>
+                                <li><a href="#">新書查詢</a></li>
+                                <li><a href="#">電子資源</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">我的圖書館</a>
+                            <ul>
+                                <li><a href="#">我的評價</a></li>
+                                <li><a href="#">我的活動</a></li>
+                                <li><a href="#">我的意見</a></li>
+                                <li><a href="#">個人資料</a></li>
+                                <li><a href="#">行動借閱</a></li>
+                                <li><a href="#">我的借閱紀錄</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- menu End -->
+            </div>
+        </header>
+        <!-- header End -->
+        <!-- main Start -->
+        <div id="center" class="main innerpage">
+            <!-- 內頁新增一個classname-->
+            <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+            <section class="col-12 full main_image">
+                <div class="container">
+                    <div class="img-container">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="images/top_bg.jpg">
+                            <source media="(min-width: 992px)" srcset="images/top_bg.jpg">
+                            <source media="(min-width: 576px)" srcset="images/top_bg.jpg">
+                            <source media="(max-width: 575px)" srcset="images/top_bg.jpg">
+                            <img data-src="images/top_bg.jpg" class="lazy loaded cover">
+                            <noscript><img src="images/top_bg.jpg"></noscript>
+                        </picture>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="container">
+                <!-- breadcrumb路徑 -->
+                <div class="function_nav">
+                    <div class="breadcrumb">
+                        <ul>
+                            <li><a href="#">首頁</a></li>
+                            <li>問卷調查</li>
+                        </ul>
+                    </div>
+                    <div class="function">
+                        <ul>
+                            <li class="back"><a href="javascript:history.back()">回上一頁</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h2 class="title">問卷調查</h2>
+                <section class="lp">
+                    <div class="table_list questionnaire">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>編號</th>
+                                    <th class="name">問卷主題</th>
+                                    <th>調查起迄時間</th>
+                                    <th>填寫問卷</th>
+                                    <th>觀看結果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="num">01</td>
+                                    <td class="name">108年圖書館讀者滿意度調查</td>
+                                    <td class="date">2019/09/01~2019/09/31</td>
+                                    <td><a href="#" class="btn btn-primary">填寫</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">02</td>
+                                    <td class="name">108年圖書館讀者滿意度調查</td>
+                                    <td class="date">2019/09/01~2019/09/31</td>
+                                    <td><a href="#" class="btn btn-primary">填寫</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">03</td>
+                                    <td class="name">107年圖書館讀者滿意度調查</td>
+                                    <td class="date">2019/09/01~2019/09/31</td>
+                                    <td></td>
+                                    <td><a href="#" class="btn btn-secondary">詳細內容</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!-- LP End -->
+                <div class="pagination">
+                    <form action="" class="form_inline">
+                        <div class="total"> 共<span>308</span>筆資料，第<span>1/18</span>頁，每頁顯示 <select name="" id="">
+                                <option value="">10</option>
+                                <option value="">20</option>
+                                <option value="">30</option>
+                                <option value="">40</option>
+                            </select> 筆， <input type="button" class="btn" value="確定">
+                        </div>
+                    </form>
+                    <ul class="page">
+                        <li class="first">
+                            <a href="#" title="第一頁">第一頁 </a></li>
+                        <li class="prev">
+                            <a href="#" title="回上一頁">回上一頁 </a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li><a href="#">10</a></li>
+                        <li class="next">
+                            <a href="#" title="下一頁">下一頁 </a>
+                        </li>
+                        <li class="last">
+                            <a href="#" title="最後一頁">最後一頁 </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- fatfooter Start -->
+    <section class="fatfooter">
+                                <div class="container">
+                                    <button type="button" name="收合" class="btn btn-fatfooter">CLOSE</button>
+                                    <nav>
+                                        <ul>
+                                            <li><a href="#">關於圖書館</a>
+                                                <ul>
+                                                    <li><a href="#">局長的話</a></li>
+                                                    <li><a href="#">館舍介紹</a></li>
+                                                    <li><a href="#">宜蘭分區資源中心</a></li>
+                                                    <li><a href="#">鄉鎮圖書館</a></li>
+                                                    <li><a href="#">各科職掌</a></li>
+                                                    <li><a href="#">行事曆</a></li>
+                                                    <li><a href="#">宜蘭演藝廳</a></li>
+                                                    <li><a href="#">台灣戲劇館</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">最新消息</a>
+                                                <ul>
+                                                    <li><a href="#">最新消息</a></li>
+                                                    <li><a href="#">活動報名</a></li>
+                                                    <li><a href="#">活動花絮</a></li>
+                                                    <li><a href="#">政令宣導</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">讀者服務</a>
+                                                <ul>
+                                                    <li><a href="#">開館時間</a></li>
+                                                    <li><a href="#">圖書推薦</a></li>
+                                                    <li><a href="#">圖書館相關規定</a></li>
+                                                    <li><a href="#">場地預約</a></li>
+                                                    <li><a href="#">座位預約</a></li>
+                                                    <li><a href="#">導覽申請</a></li>
+                                                    <li><a href="#">線上問卷</a></li>
+                                                    <li><a href="#">活動報名</a></li>
+                                                    <li><a href="#">失物招領</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">館藏服務</a>
+                                                <ul>
+                                                    <li><a href="#">圖書館館藏查詢</a></li>
+                                                    <li><a href="#">新書查詢</a></li>
+                                                    <li><a href="#">電子資源</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">我的圖書館</a>
+                                                <ul>
+                                                    <li><a href="#">我的評價</a></li>
+                                                    <li><a href="#">我的活動</a></li>
+                                                    <li><a href="#">我的意見</a></li>
+                                                    <li><a href="#">個人資料</a></li>
+                                                    <li><a href="#">行動借閱</a></li>
+                                                    <li><a href="#">我的借閱紀錄</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </section>
+    <!-- fatfooter End -->
+    <!-- footer Start-->
+    <footer>
+                                <div class="container">
+                                    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁尾區">:::</a>
+                                    <div class="footer_info">
+                                        <p class="address">
+                                            26051 宜蘭縣宜蘭市復興路二段101號    電話：(03)9322440<br>
+                                            信箱：ilccbservice@mail.e-land.gov.tw   <span class="update">更新日期：<em>2020/07/20</em></span><span class="counter">瀏覽人次：<em>2,687,073</em></span>
+                                        </p>
+                                        <div class="footer_icon">
+                                            <ul>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/f-icon-fb.png" alt="facebook">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/f-icon-youtube.png" alt="youtube">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/f-icon-ig.png" alt="ig">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/basic/accessibility2.jpg" alt="">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 footer_bottom">
+                                    <div class="container">
+                                        <div class="footer_order">
+                                            <form action="">
+                                                <div class="form_grp form_inline">
+                                                    <label for="username"></label>
+                                                    <input name="username" type="text" placeholder="請輸入EMAIL" value="請輸入EMAIL">
+                                                    <button>訂閱</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <p class="copyright">Copyright 2020(C)宜蘭縣政府文化局 宜蘭縣圖書館All Rights Reserved.</p>
+                                    </div>
+                                </div>
+                            </footer>
+    <!-- footer End -->
+    </div>
+    <a href="javascript:;" class="scrollToTop">回頁首</a>
+    <!-- JQ -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 外掛 plugin js -->
+    <script src="vendor/jquery.easing.min.js"></script><!-- ease -->
+    <script src="vendor/slick/slick.js "></script><!-- slick -->
+    <script src="vendor/slick/slick-lightbox.js "></script><!-- slick lightbox -->
+    <script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
+    <script src="vendor/picturefill/picturefill.min.js" async></script><!-- picturefill -->
+    <script src="vendor/scrolltable/jquery.scroltable.min.js"></script><!-- scrolltable -->
+    <script src="vendor/pg_calendar/js/pignose.calendar.full.js"></script>
+    <!-- hyUI -->
+    <script src="js/hyui.js"></script>
+    <!-- 客製js -->
+    <script src="js/customize.js"></script>
+    <script>
+    $(function() {
+        $('.calendar').pignoseCalendar({
+            lang: 'ch',
+
+        });
+    });
+    </script>
+</body>
+
+</html>

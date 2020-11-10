@@ -1,0 +1,123 @@
+// tab的外框線
+a:focus {
+    outline: none;
+    box-shadow: 0 0px 0px 1px $aHover inset;
+    @include screen('mobile') {
+        box-shadow: none;
+    }
+}
+
+// 導盲磚
+.accesskey {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 9;
+    color: #fff;
+    font-size: $font-size;
+    @include screen("mobile") {
+        display: none;
+    }
+}
+
+// more按鈕
+a.more {
+    float: right;
+    display: block;
+    text-align: center;
+    margin: .5em auto .5em;
+    padding: 2em .65em 0 70px;
+    color: $importantColor;
+    text-align: center;
+    // overflow: hidden;
+    vertical-align: bottom;
+    position: relative;
+    clear: both;
+    font-weight: 700;
+
+    &:after{
+        content:'';
+        position: absolute;
+        bottom:0;
+        left: 0;
+        width: 54px;
+        height: 42px;
+        background: url('../images/more_bg.png')no-repeat center center;
+        background-size: 54px auto;
+        z-index:1;
+    }
+    &:hover,
+    &:focus,
+    &.active {
+        color: darken($importantColor, 5);
+        &:after {
+            // animation: more_underline .3s ease-in;
+        }
+    }
+}
+
+@keyframes more_underline {
+  0%   {width: 0;}
+  100% {width: 100%;}
+}
+
+// scrollTop
+.scrollToTop {
+    width: 50px;
+    height: 50px;
+    border-radius: 42%;
+    background: url(../images/basic/top.png) no-repeat center top rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #FFF;
+    line-height: 50px;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    transition: .3s ease-out;
+    display: none;
+    z-index: 99999999;
+    text-indent: -999999px;
+    &:hover,&:focus{
+        background: url(../images/basic/top.png) no-repeat center top rgba(0, 0, 0, 0.8);
+        box-shadow:none;
+    }
+}
+
+// img
+img.img-responsive {
+    @include img-responsive();
+}
+// 表單必填
+.necessary {
+    color: red;
+    margin: 0px .2em;
+}
+
+.tooltip {
+    text-align: center;
+    padding: 40px 0;
+    span {
+        display: inline-block;
+        background: #DEDEDE;
+        text-align: center;
+        padding: 10px;
+        width: 100px;
+        height: 20px;
+        line-height: 20px;
+        vertical-align: baseline;
+    }
+    p>em {
+        color: red;
+    }
+}
+
+
+
+
+
+
+
+
+
+
