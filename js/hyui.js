@@ -50,6 +50,8 @@ $(function() {
     _sidebarCtrl = $('.sidebarCtrl'),
     _overlay = $('.menu_overlay');
     _mArea = $('.m_area');
+    _language= $('.language');
+
     _sidebarCtrl.append('<span></span><span></span><span></span>');
     var search_mode = false;
     // 打開選單 function
@@ -101,6 +103,7 @@ $(function() {
     _nav.clone().prependTo(_mArea);
     _menu.clone().prependTo(_mArea);
     _search.clone().prependTo(_body).addClass('m_search');
+    _language.prependTo(_mArea).insertAfter('.navigation');
     var liHasChild_level1 = $('aside .menu ul').children('li.hasChild'),
     liHasChild_level2 = $('aside .menu ul ul').children('li.hasChild'),
     liHasChild_level3 = $('aside .menu ul ul ul').children('li.hasChild'),
@@ -115,9 +118,11 @@ $(function() {
             menu_status = false;
             _sidebar.hide();
             _overlay.hide();
+
             _mArea.css({
                 'margin-left': _mArea.width() * -1 + 'px'
             });
+            
             liHasChild_level1.on({
                 mouseenter: function() {
                     $(this).children('ul').stop(true, true).slideDown('600', 'easeOutQuint');
@@ -164,6 +169,7 @@ $(function() {
             _menu.appendTo('.header .container');
             _search.removeClass('m_search');
             // _search.show();
+            _language.insertBefore('.font_size');
             search_mode = false;
             $('.language').find('ul').hide();
             // 副選單滑出
@@ -549,22 +555,24 @@ $(function() {
     $('.font_size').find('.medium').addClass('active');
     $('.font_size').find('.small').click(function(e) {
         $(this).parent('li').siblings('li').find('a').removeClass('active');
-        $('.cp').removeClass('large_size').addClass('small_size');
+        // $('.cp').removeClass('large_size').addClass('small_size');
+        $('body').removeClass('large_size').addClass('small_size');
         $(this).addClass('active');
         e.preventDefault();
     });
     $('.font_size').find('.medium').click(function(e) {
         $(this).parent('li').siblings('li').find('a').removeClass('active');
-        $('.cp').removeClass('large_size small_size');
+        $('body').removeClass('large_size small_size');
         $(this).addClass('active');
         e.preventDefault();
     });
     $('.font_size').find('.large').click(function(e) {
         $(this).parent('li').siblings('li').find('a').removeClass('active');
-        $('.cp').removeClass('small_size').addClass('large_size');
+        $('body').removeClass('small_size').addClass('large_size');
         $(this).addClass('active');
         e.preventDefault();
     });
+
     /*-----------------------------------*/
     /////////// category active  //////////
     /*-----------------------------------*/

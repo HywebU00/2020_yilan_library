@@ -833,8 +833,9 @@
         transition: all .3s;
         min-width: 6em;
         border-radius: 3px;
+        background-color: rgba(255,255,255,1);
         @include box-sizing;
-        &:hover, &.active{
+        &:hover, &.active, &:focus{
             background: $importantColor;
             color:#fff;
             box-shadow:none;
@@ -842,34 +843,34 @@
 
     }
     button{
-        width: 19%;
+        width: 19.2%;
         @include screen('tablet') {
-         width: 32%; 
-     }
-     @include screen('xs_mobile') {
-        width: 49%; 
-    }
-    &.active{
-        &:before{
-
+            width: 32.2%; 
         }
-        &:after{
-            content:"";
-            position: absolute;
-            left:50%;
-            bottom:-14px;
-            width: 0px;
-            height: 8px;
-            margin-left: -10px;
-            border-style: solid;
-            border-width: 8px 9px 0 9px;
-            border-color: #dd340e transparent transparent transparent;
-            @include screen('mobile') {
-                bottom:-14px; 
+        @include screen('xs_mobile') {
+            width: 49%; 
+        }
+        &.active{
+            &:before{
+
+            }
+            &:after{
+                content:"";
+                position: absolute;
+                left:50%;
+                bottom:-14px;
+                width: 0px;
+                height: 8px;
+                margin-left: -10px;
+                border-style: solid;
+                border-width: 8px 9px 0 9px;
+                border-color: #dd340e transparent transparent transparent;
+                @include screen('mobile') {
+                    bottom:-14px; 
+                }
             }
         }
     }
-}
 }
 .library_info{
     padding: 0;

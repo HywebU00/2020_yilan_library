@@ -67,7 +67,7 @@ $grid-background-baseline-color: rgba(187, 187, 187, 0.4);
         @include adjust-font-size-to($base-font-size);
     }
     blockquote {
-        background: #f2f2f2;
+        background: #fff;
         font-style: normal;
         display: block;
         @include adjust-font-size-to($base-font-size);

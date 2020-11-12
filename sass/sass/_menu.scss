@@ -310,8 +310,8 @@
             border-bottom: none;
             border-right: none;
             li {
-                float: left;
-                width: 50%;
+                float: none;
+                width: 100%;
                 margin: 0;
                 padding: 0;
                 @include box-sizing;
@@ -337,6 +337,9 @@
                     &:focus {
                         background: darken($primaryColor, 20);
                     }
+                }
+                .search_btn, .login_btn{
+                    display: none;
                 }
             }
         }

@@ -12,6 +12,9 @@
 }
 .tabs {
     position: relative;
+    h3{
+        margin: 1em 0 .5em;
+    }
     &>.tabItem {
         //float: left;
         position: relative;
@@ -19,9 +22,9 @@
         font-size:1em;
         line-height: 1;
         font-weight: normal;
-        margin:0;
+        margin: 1em 0 .5em;
         &.active{
-            @include screen('mobile'){
+            @include screen('mobile') {
                 margin-top: 15px;
             }
             >a {
@@ -44,12 +47,12 @@
                 border-width: 8px 9px 0 9px;
                 border-color: #dd340e transparent transparent transparent;
                 @include screen('mobile') {
-                 bottom:-10px; 
-             }
-         }
-     }
+                   bottom:-10px; 
+               }
+           }
+       }
 
-     @include screen('mobile') {
+       @include screen('mobile') {
         float: none;
         &>a {
             width: 100% !important;
@@ -62,7 +65,7 @@
     }
     &>a {
         display: block;
-        padding: .6em 1.8em;
+        padding: .6em 1.6em;
         text-align: center;
             //background-color: #fff;
             color: $color-word;
@@ -73,7 +76,10 @@
             border-radius: 3px;
             @include text-overflow;
             @include box-sizing;
-            @include screen('mobile'){
+            @include screen('tablet') {
+                padding: .6em 1em;
+            }
+            @include screen('mobile') {
                 margin-bottom: .3em;
                 max-width:100%;
                 background-color: $primaryColor;
@@ -150,42 +156,56 @@
         .tabContent{
             background: #fff;
             padding: 20px;
+            margin-top:.5em;
         }
         .tabs {
             &>.tabItem {
                 font-size: 1.125em;
-                &.active{
+                z-index:2;
+                >a{
+                    background: #fff;
+                    padding: .6em 2.4em;
+                    color:#333;
                     @include screen('mobile'){
-                        margin-top: 15px;
-                    }
-                    >a {
-                        background: $importantColor;
-                        color:#fff;
-                    }
-                    &:before{
+                       background: #eee; 
+                   }
+
+                   &:hover {
+                    color:#333;
+                }
+            }
+            &.active{
+                @include screen('mobile'){
+                    margin-top: 15px;
+                }
+                >a {
+                    background: $importantColor;
+                    color:#fff;
+                }
+                &:before{
 
 
-                    }
-                    &:after{
-                        content:"";
-                        position: absolute;
-                        left:50%;
-                        bottom:-14px;
-                        width: 0px;
-                        height: 8px;
-                        margin-left: -10px;
-                        border-style: solid;
-                        border-width: 8px 9px 0 9px;
-                        border-color: #dd340e transparent transparent transparent;
-                        @include screen('mobile') {
-                         bottom:-10px; 
-                     }
-                 }
-             }
+                }
+                &:after{
+                    content:"";
+                    position: absolute;
+                    left:50%;
+                    bottom:-14px;
+                    width: 0px;
+                    height: 8px;
+                    margin-left: -10px;
+                    border-style: solid;
+                    border-width: 8px 9px 0 9px;
+                    border-color: #dd340e transparent transparent transparent;
+                    @include screen('mobile') {
+                       bottom:-10px; 
+                   }
+               }
+           }
 
-         }
+       }
 
-     }
- } 
+   }
+} 
 
 }

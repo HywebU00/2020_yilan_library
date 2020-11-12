@@ -2,10 +2,13 @@
     overflow: hidden;
     display: inline-block;
     text-align: center;
+    position: absolute;
+    right:.5em;
+    top:3.5em;
     span {
         display: inline-block;
         vertical-align: middle;
-        font-size: .938em;
+        font-size: .875em;
         color: #666;
     }
     ul {
@@ -13,35 +16,42 @@
         vertical-align: middle;
         @include li-reset;
         li {
-            width: 40px;
-            height: 40px;
-            font-size: 1em;
+            font-size: .938em;
             float: left;
             display: block;
             margin: 0 .2em;
+            font-weight: bold;
             a {
                 display: block;
                 text-align: center;
                 line-height: 40px;
                 border-radius: 50%;
-                background: #F1F1F1;
-                color: #333;
+                background: #fff;
+                color: #282828;
+                padding: 0!important;
+                width: 30px;
+                height: 30px;
+                line-height: 2.1em;
                 &:hover, &:focus {
-                    background: $aHover;
-                    color: #FFF;
+                    // background: $aHover;
+                    // color: #FFF;
                 }
                 &.active {
-                    background: #F1F1F1;
+                    background: #494949;
+                    color:#fff;
                     &:hover, &:focus {
                         background: $aHover;
                         color: #FFF;
                     }
                 }
                 &.small {
-                    font-size: .938em;
+                    // font-size: .938em;
                 }
                 &.large {
-                    font-size: 1.125em;
+                    // font-size: 1.125em;
+                }
+                &:before {
+                    display: none;
                 }
             }
         }

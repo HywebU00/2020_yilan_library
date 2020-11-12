@@ -18,7 +18,7 @@ $btn-radius:.125em;
     transition: all .3s;
     @include border-radius($btn-radius);
     //@include gradient(lighten($btn-bg, 5), darken($btn-bg, 15), vertical);
-     &:hover, &:focus {
+    &:hover, &:focus {
         background-color: $aHover; // Old browsers
         //border: 1px solid darken($btn-bg, 20) !important;
         cursor: pointer;
@@ -105,7 +105,7 @@ $btn-radius:.125em;
 }
 .btn-secondary{
     @extend %btn;
-    @include btn_setting($secondaryColor, #FFF);
+    @include btn_setting($primaryColor, #FFF);
 }
 // 按鈕大小
 .btn-xl {

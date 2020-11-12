@@ -233,10 +233,12 @@ $('.bookSlider2').slick({
 
     $('.login_btn').click(function(e) {
         $('.search').hide();
+        $('.reader_area').hide();
         $('.reader_login').toggle();
     });
     $('.loggedin').click(function(e) {
         $('.search').hide();
+        $('.reader_login').hide();
         $('.reader_area').toggle();
 
     });

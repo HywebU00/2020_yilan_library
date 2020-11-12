@@ -2,43 +2,44 @@
     width: 140px;
     font-weight: bold;
     font-size: .75em;
-    text-shadow: 1px 1px 2px RGBA(0, 0, 0, .8);
+    // text-shadow: 1px 1px 2px RGBA(0, 0, 0, .8);
     position: relative;
+    border: solid 1px #d2d5cd;
     >a {
         display: block;
-        background: #555;
+        background: #fff;
         box-sizing: border-box;
-        color: #FFF;
+        color: #555;
         padding: .2em 1em;
         position: relative;
         transition: .3s ease-out;
         &:after {
             position: absolute;
             right: .8em;
-            top: 1em;
+            top: .9em;
             content: "";
             width: 0;
             height: 0;
             border-style: solid;
             border-width: 6px 3px 0 3px;
-            border-color: #ffffff transparent transparent transparent;
+            border-color: #555 transparent transparent transparent;
         }
         &:before {
             position: absolute;
             width: 1px;
             height: 1.6em;
             right: 2em;
-            top: .4em;
+            top: .3em;
             content: "";
             border-left: 1px solid #DDD;
         }
         &:focus {
             box-shadow: none;
-            background: #444;
+            // background: #444;
         }
     }
     ul {
-        background: #555;
+        background: #1c7e7e;
         padding: 1em 1.5em;
         position: absolute;
         top: 2.35em;
@@ -54,13 +55,32 @@
             margin: 0 !important;
             a {
                 display: block !important;
-                color: #FFF !important;
+                color: #fff !important;
                 padding: .5em .5em .5em 1em !important;
                 transition: .3s ease-out;
                 &:hover, &:focus {
                     background: RGBA(0, 0, 0, .3);
                 }
+                &:before {
+                    display: none;
+                }
             }
         }
     }
+}
+
+.m_area{
+ .language {
+    width: 90%;
+    margin: 1em auto;
+    font-weight: bold;
+    font-size: 1em;
+    ul {
+      font-size: .938em;
+      width: 100%;
+      li {
+        border-bottom: dotted 1px rgba(255, 255, 255, .5);
+    } 
+}
+} 
 }

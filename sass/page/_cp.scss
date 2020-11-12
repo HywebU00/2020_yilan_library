@@ -2,7 +2,7 @@
 // 文章標題
 h1.title, h2.title {
     line-height: 1.25em;
-    margin: 1em 0;
+    margin: .5em 0;
     font-size: 1.875em;
 }
 h3.title{
@@ -298,7 +298,7 @@ div.tag {
         position: relative;
         margin-bottom: 10px;
         padding-left: 1em;
-        border-bottom: 1px solid #EEE;
+        border-bottom: 1px solid #ddd;
         clear: both;
         overflow: hidden;
         padding-bottom: .5em;
@@ -536,7 +536,7 @@ div.tag {
     li {
         position: relative;
         margin-bottom: 10px;
-        border-bottom: 1px solid #EEE;
+        border-bottom: 1px solid #ddd;
         a {
             padding: .2em 0px .2em 35px;
             position: relative;

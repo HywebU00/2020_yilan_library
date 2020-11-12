@@ -100,7 +100,7 @@
         float: left;
         width: 360px;
         height: 70px;
-        margin: .65em 0;
+        margin: 1.2em 0 .2em;
         padding: 0;
         @include box-sizing;
         a {
@@ -110,6 +110,9 @@
             display: block;
             max-width: 360px;
             max-height: 70px;
+        }
+        @include screen('tablet') {
+            margin: 1.5em 0 0em;
         }
         @include screen('mobile') {
             padding: 2px 120px 0 50px;
@@ -142,8 +145,11 @@
         display: flex;
         position: absolute;
         top:0;
-        right: 0;
-    }
+        right: 150px;
+        @include screen('mobile') {
+          right: 0;  
+      }
+  }
     // 導覽列
     .navigation {
         @extend %clearfix;
@@ -193,25 +199,33 @@
                 }
             }
         }
-        .language {
-            position: absolute;
-            right: 15px;
-            top: .35em;
-            font-size: .75em;
+
+    }
+
+    .language {
+        position: absolute;
+        right: 15px;
+        top: 1em;
+        font-size: .875em;
+        @include screen('mobile') {
+            display: none;
         }
     }
+
+
     .login_btn, .loggedin{
         border-radius: 0;
         border:none;
-        padding:1.2em 1em 1.2em 30px;
+        padding:0 1em 0 30px;
         margin:0;
-        width: 100px;
+        // width: 100px;
         max-height: 60px;
-        min-width: 112px;
+        // min-width: 112px;
         background-color: rgba(255, 255, 255, 0);
         color: $linkColor;
         text-align: left;
         position: relative;
+        font-size: .938em;
         &:before{
             content:'';
             width: 23px;
@@ -219,7 +233,7 @@
             background: url('../images/nav_libg.png')no-repeat center center;
             position: absolute;
             left:0;
-            top:1.4em;
+            top:1.5em;
         }
         &:hover{
             color: $aHover;
@@ -227,6 +241,7 @@
             box-shadow: none;
         }
         @include screen('mobile'){
+            float: right;
             padding:0;
             width: 60px;
             min-width: 60px;
@@ -249,15 +264,16 @@
     .search_btn{
         border-radius: 0;
         border:none;
-        padding:1.2em 1em 1.2em 30px;
+        padding:0 1em 0 30px;
         margin:0;
-        width: 100px;
+        // width: 100px;
         max-height: 60px;
-        min-width: 112px;
+        // min-width: 112px;
         background-color: rgba(255, 255, 255, 0);
         color: $linkColor;
         text-align: left;
         position: relative;
+        font-size: .938em;
         &:before{
             content:'';
             width: 23px;
@@ -265,7 +281,7 @@
             background: url('../images/nav_libg.png')no-repeat center center;
             position: absolute;
             left:0;
-            top:1.4em;
+            top:1.5em;
         }
         &:hover{
             color: $aHover;
@@ -488,30 +504,35 @@
         .btn_grp {
             padding: .1em 5% .1em 0;
             // margin-bottom: 0;
-            width: 120px;
+            width: 116px;
             text-align: left;
-            margin: .3em auto 0;
+            margin: .3em 0 0 .4em;
             @include box-sizing();
             input {
                 width: 100% !important;
                 padding: .6em .5em !important;
                 margin: 0!important;
                 height: 40px;
+                border-radius: 3px;
             }
-        }
-        .keywordHot {
-            padding-left: 5%;
-            margin-top: 10px;
-            @extend %clearfix;
-            a {
-                color: #333;
-                &:hover,
-                &:focus {
-                    color: $primaryColor;
-                }
+            @include screen('xs_mobile') {
+               float:left;
+
+           }
+       }
+       .keywordHot {
+        padding-left: 5%;
+        margin-top: 10px;
+        @extend %clearfix;
+        a {
+            color: #333;
+            &:hover,
+            &:focus {
+                color: $primaryColor;
             }
         }
     }
+}
 
 }
 .reader_area_block{
