@@ -167,44 +167,67 @@
         input[type="button"] {
             // width: 10.37%;
             // min-width:6.8em;
-            @include screen("tablet") {
-                width: 15.5%;
-            }
+            // @include screen("tablet") {
+            //     width: 15.5%;
+            // }
         }
         .pc_select{
             text-align:left;
             padding:0;
+            button, input[type="button"]{
+                display: inline-block;
+                padding: .6em 0;
+                margin:.2em 0;
+                text-align: center;
+                background-color: rgba(255,255,255,0);
+                color: $color-word;
+                text-decoration: none;
+                border:0;
+                border-radius: 0;
+                position: relative;
+                transition: all .3s;
+                min-width: 6em;
+                border-radius: 3px;
+                background-color: rgba(255,255,255,1);
+        @include box-sizing;
+        &:hover, &.active, &:focus{
+            background: $importantColor;
+            color:#fff;
+            box-shadow:none;
+        }
+
+    }
+}
+}
+
+.link_grp {
+    padding-top: 0;
+    ul{
+        list-style: none;
+        padding:0 0 10px 0;
+        width: 100%;
+
+        @include screen("mobile") {
+            display: block;
+            overflow: hidden;
         }
     }
 
-    .link_grp {
-        padding-top: 0;
-        ul{
-            list-style: none;
-            padding:0 0 10px 0;
-            width: 100%;
-
-            @include screen("mobile") {
-                display: block;
-                overflow: hidden;
-            }
+    li {
+        display: inline-block;
+        margin: 0 0 .5em;
+        box-sizing: border-box;
+        color: $color-word;
+        text-align: center;
+        width: 19.2%;
+        @include screen('tablet') {
+            width: 32.2%; 
+        }
+        @include screen('xs_mobile') {
+            width: 49%; 
         }
 
-        li {
-            display: inline-block;
-            margin: 0 0 .5em;
-            box-sizing: border-box;
-            color: $color-word;
-            text-align: center;
-            width: 19.2%;
-            @include screen('tablet') {
-                width: 32.2%; 
-            }
-            @include screen('xs_mobile') {
-                width: 49%; 
-            }
-
-            a{
+        a{
                 // background: #fff;
                 // color: darken($primaryColor, 10);
                 // display: inline-block;
