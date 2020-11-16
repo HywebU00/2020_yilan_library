@@ -212,9 +212,9 @@
 .category_search_2{
     margin: 0 .5em;
     ul{
-       @include li-reset; 
-   }
-   li{
+     @include li-reset; 
+ }
+ li{
     display: inline-block;
     margin-bottom: .5em;
     a{
@@ -928,10 +928,10 @@
                 }
             }
             @include screen('mobile') {
-             padding-left: 0; 
-         }
-     }
-     .tabContent{
+               padding-left: 0; 
+           }
+       }
+       .tabContent{
         width: 250px;
         clear: none;
         padding: 0;
@@ -1278,6 +1278,7 @@
             transition: .3s ease-out;
         }
         a {
+            display: block;
             &:hover, &:focus {
                 img {
                     transform: scale(1.1);
