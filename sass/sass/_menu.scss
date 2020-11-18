@@ -18,9 +18,9 @@
         >li {
             display: inline-block;
             vertical-align: top;
-            min-width: 10em;
+            min-width: 8em;
             @include screen('tablet') {
-                min-width: 8em;
+                min-width: auto;
             }
             >a {
                 display: block;
