@@ -52,7 +52,8 @@
         background: url(../vendor/slick/icon_arrow_left.png)no-repeat left center;
         background-size: 56px auto;
         top: 50%;
-        left: -1000px;
+        left:20px;
+        display: none!important;
         @include screen('mobile') {
         }
     }
@@ -60,7 +61,8 @@
         background: url(../vendor/slick/icon_arrow_right.png)no-repeat right center;
         background-size: 56px auto;
         top: 50%;
-        right: -1000px;
+        right: 20px;
+        display: none!important;
         @include screen('mobile') {
             display: none;
         }
@@ -68,18 +70,19 @@
     .slick-dots{
         text-align: center;
         padding:0 5px;
+        bottom: -25px;
         li{
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             margin:0 1px;
             button{
-                width: 20px;
-                height: 20px;
+                width: 22px;
+                height: 22px;
                 &:before{
                     width: 10px;
                     height: 10px;
                     border-radius: 0;
-                    top:5px;
+                    top:2px;
                     left:5px;
                 }
             }
@@ -168,6 +171,7 @@
         top: 50%;
         left: -60px;
         @include screen('mobile') {
+            left: 10px;
         }
     }
     .slick-next {
@@ -176,7 +180,7 @@
         top: 50%;
         right: -60px;
         @include screen('mobile') {
-            display: none;
+            right: 10px;
         }
     }
 }
@@ -243,6 +247,7 @@
 .slick-dots {
     @include screen("mobile"){
         bottom: -20px;
+        left:0;
     }
     li {
         width: 12px;

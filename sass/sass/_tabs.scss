@@ -14,8 +14,11 @@
     position: relative;
     h3{
         margin: 1em 0 .5em;
-    }
-    &>.tabItem {
+        @include screen('mobile') {
+           margin: .5em 0; 
+       }
+   }
+   &>.tabItem {
         //float: left;
         position: relative;
         display:inline-block;
@@ -25,7 +28,7 @@
         margin: 1em 0 .5em;
         &.active{
             @include screen('mobile') {
-                margin-top: 15px;
+                margin-top: 0;
             }
             >a {
                 background: $importantColor;
@@ -54,6 +57,7 @@
 
        @include screen('mobile') {
         float: none;
+        margin: 0;
         &>a {
             width: 100% !important;
             border-bottom: none;

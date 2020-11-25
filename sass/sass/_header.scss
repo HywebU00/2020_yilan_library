@@ -145,7 +145,7 @@
         display: flex;
         position: absolute;
         top:0;
-        right: 150px;
+        right: 0;
         @include screen('mobile') {
           right: 0;  
       }
@@ -260,6 +260,19 @@
             min-width: 50px;
             max-width: 50px;
         }
+    }
+    .loggedin{
+        padding:1.25em 1em 0 24px;
+        color:#111;
+        &:before{
+            content:'';
+            width: 24px;
+            height: 1.2em;
+            background: url('../images/icon/icon_user.svg')no-repeat center center;
+            position: absolute;
+            left:0;
+            top:1.4em;
+        }  
     }
     .search_btn{
         border-radius: 0;
@@ -516,11 +529,11 @@
                 border-radius: 3px;
             }
             @include screen('xs_mobile') {
-               float:left;
+             float:left;
 
-           }
-       }
-       .keywordHot {
+         }
+     }
+     .keywordHot {
         padding-left: 5%;
         margin-top: 10px;
         @extend %clearfix;

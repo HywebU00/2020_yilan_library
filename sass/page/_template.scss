@@ -88,20 +88,20 @@ body {
     .col {
         @include gutter;
     }
-    // .news, .recent_activities{
-    //    padding-left: 3.5em;
-    //    overflow: hidden;
-    //    //background-color: #fff;
-    //    @include screen('mobile'){
-    //         padding-left:15px;
-    //    }
-    // }
-    .reader_service{
-        padding-left: 3.5em;
-        @include screen('mobile'){
-            padding-left: 0;
-        }
+//     .news, .recent_activities{
+//      padding-left: 3.5em;
+//      overflow: hidden;
+//        //background-color: #fff;
+//        @include screen('mobile'){
+//         padding-left:15px;
+//     }
+// }
+.reader_service{
+    padding-left: 3.5em;
+    @include screen('mobile'){
+        padding-left: 0;
     }
+}
 
 }
 
@@ -172,7 +172,7 @@ body {
         }
     }
     .library_info{
-        background: url(../images/flower_g_01.png) right 8% bottom  no-repeat;
+        text-align: left;
         &:after{
             display:none;
         }
@@ -187,16 +187,21 @@ body {
                 margin: .5em 0;
             }
             ul{
+                margin: 0 0 0 2em;
+                padding: 0;
                 li{
-                    &:before{
-                        content: "";
-                        position:absolute;
-                        width:12px;
-                        height:1px;
-                        background-color: $secondaryColor;
-                        left:0;
-                        top:1.25em;
-                    }
+                    position: relative;
+                    line-height: 2em;
+
+                    // &:before{
+                    //     content: "";
+                    //     position:absolute;
+                    //     width:12px;
+                    //     height:1px;
+                    //     background-color: $secondaryColor;
+                    //     left:0;
+                    //     top:1.25em;
+                    // }
                 }
             }
         }

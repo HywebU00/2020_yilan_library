@@ -1,23 +1,26 @@
 .sp {
     .mpSlider {
-        width: 70%;
-        margin: 0 auto;
-        @include screen("mobile"){
+        width: 96%;
+        margin: 0 auto 2em;
+        @include screen("mobile") {
             width: 100%;
             padding-left: 15px;
             padding-right: 15px;
         }
         .img-container {
             @include aspect-ratio(2, 1);
+            background: #fff;
             img{
                 object-fit: contain;
             }
         }
     }
 
+
     .library_info {
         .info_content {
             padding: 1em 0;
+            background: none;
         }
     }
 
@@ -29,7 +32,7 @@
             padding-left: 2em;
         }
         li {
-            padding: .5em 0;
+            padding: 0;
             line-height: 2;
         }
 
@@ -39,7 +42,7 @@
     >div {
         &:last-child {
             .map {
-                margin-bottom: -2em;
+                margin-bottom: -1em;
             }
 
         }
@@ -70,7 +73,7 @@
         background: #F1F1F1;
         overflow: hidden;
         padding: .5em .5em .2em;
-        @include screen("mobile"){
+        @include screen("mobile") {
             width: 100%;
         }
     }
@@ -86,6 +89,13 @@
             padding:.5em;
         }
     }
+    .activity_info{
+        .activity_title{
+            padding: .5em 5em 0 0;
+        }
+        .activity_location{
+            margin: -1.5em 0 0;
+        }
+    }
+
 }
-
-
