@@ -67,47 +67,56 @@
                 </div>
                 <!--讀者已登入狀態-->
                 <div class="reader_area">
-                    <form action="">
-                        <div class="form_inline">
-                            <button type="button" class="close">關閉</button>
-                            <p class="reader">歡迎，<span class="reader_name">張家祥</span></p>
-                            <ul>
-                                <li class="reader_borrow">借閱中<span>10</span></li>
-                                <li class="reader_overdue">逾期未歸<span>1</span></li>
-                                <li class="reader_violation">違規天數<span>1</span></li>
-                                <li class="reader_booked">預約<span>5</span></li>
-                                <li class="reader_arrival">已到館<span>2</span></li>
-                            </ul>
-                            <div class="btn_grp">
-                                <button class="my_study">個人書房</button>
-                                <button class="logout">登出</button>
-                            </div>
+                    <form  id="memberlogin"  action="" method="post"  class="form_inline">
+                        <p class="reader">
+                            歡迎，<span class="reader_name">凌網測試讀者</span>
+                        </p>
+                        <ul>
+                            <li class="reader_borrow">借閱中<span>0</span></li>
+                            <li class="reader_overdue">逾期未歸<span>0</span></li>
+                            <li class="reader_violation">違規天數<span>0</span></li>
+                            <li class="reader_booked">預約<span>0</span></li>
+                            <li class="reader_arrival">已到館<span>0</span></li>
+                        </ul>
+                        <div class="btn_grp">
+                            <button class="my_study"  onclick="member()" >個人書房</button>
+                            <a class="logout" id="btn_logout"  title="登出"   href="sp?xdUrl=/wSite/MemberManager/SSOLogout.jsp&mp=1">登出</a>
                         </div>
-                    </form>
-                </div>
+                        
+                        <script>
+                            $("#loggedin").html("凌網測試讀者");
+                            $("#login_btn").hide();
+                            $("#loggedin").show(); 
+                            function member() {
+                                window.open('MemberManager/webpacxForward.jsp');
+                        //window.open('MemberManager/hylibForward.jsp?rdurl=personalization/personal.jsp');
+                    }
+                </script>
+            </form>
+        </div>
 
-                <!-- Search Start -->
-                <div class="search">
-                    <form action="">
-                        <button type="button" class="close">關閉</button>
-                        <div class="form form_inline">
-                            <select name="" id="selectSample">
-                                <option value="" aria-labelledby="館藏查詢">館藏查詢</option>
-                                <option value="" aria-labelledby="選項二">選項二</option>
-                                <option value="" aria-labelledby="選項三">選項三</option>
-                            </select>
-                            <div class="form_grp">
-                                <label for="mustSameAsId">搜尋</label>
-                                <input name="username" id="mustSameAsId" type="text" placeholder="請輸入文字" accesskey="S">
-                                <input name="" type="submit" title="查詢" value="查詢">
-                            </div>
-                            <div class="btn_grp">
-                                <input name="" type="submit" value="進階搜尋">
-                            </div>
-                        </div>
-                    </form>
+        <!-- Search Start -->
+        <div class="search">
+            <form action="">
+                <button type="button" class="close">關閉</button>
+                <div class="form form_inline">
+                    <select name="" id="selectSample">
+                        <option value="" aria-labelledby="館藏查詢">館藏查詢</option>
+                        <option value="" aria-labelledby="選項二">選項二</option>
+                        <option value="" aria-labelledby="選項三">選項三</option>
+                    </select>
+                    <div class="form_grp">
+                        <label for="mustSameAsId">搜尋</label>
+                        <input name="username" id="mustSameAsId" type="text" placeholder="請輸入文字" accesskey="S">
+                        <input name="" type="submit" title="查詢" value="查詢">
+                    </div>
+                    <div class="btn_grp">
+                        <input name="" type="submit" value="進階搜尋">
+                    </div>
                 </div>
-                <!-- language -->
+            </form>
+        </div>
+        <!-- language -->
 <!--                 <div class="language">
                     <a href="#">語言選擇</a>
                     <ul style="display: none;">

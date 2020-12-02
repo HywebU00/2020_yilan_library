@@ -697,12 +697,13 @@
                 box-sizing: border-box;
                 color: #fff;
                 text-shadow: none;
-                padding: 0 .5em;
+                padding: .5em .5em;
                 transition: all .3s;
                 &:hover{
                     box-shadow: none;
                 }
             }
+
             .my_study{
                 background: none;
                 border:none;
@@ -728,6 +729,15 @@
                 background: none;
                 border:none;
                 color: $secondaryColor;
+                position: relative;
+                height: 36px;
+                box-sizing: border-box;
+                text-shadow: none;
+                padding: 0 .5em;
+                transition: all .3s;
+                display: inline-block;
+                margin: 0!important;
+
                 &:after{
                     content:"";
                     display:block;

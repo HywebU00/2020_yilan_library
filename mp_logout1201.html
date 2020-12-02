@@ -1,0 +1,1326 @@
+<!DOCTYPE html><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:lastModified="1606395621333" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>宜蘭縣公共圖書館</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="vendor/slick/slick.css">
+	<link rel="stylesheet" href="vendor/slick/slick-theme.css">
+	<link rel="stylesheet" href="vendor/pg_calendar/css/pignose.calendar.min.css">
+	<link rel="stylesheet" href="vendor/animate.css">
+	<link rel="stylesheet" href="css/hyui.css">
+	<script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<a class="goCenter" href="#center" tabindex="1">按Enter到主內容區</a>
+	<div class="wrapper">
+		<header class="header">
+			<div class="container">
+				<div class="nav_block">
+					<nav class="navigation"><ul>
+						<li><a href="sitemap">網站導覽</a></li>
+						<li><a href="mp">回首頁</a></li>
+						
+					</ul></nav>
+					<button class="search_btn">全站檢索</button><button id="login_btn" class="login_btn">讀者登入</button>
+					<div class="loggedin" id="loggedin" style="display: none">讀者</div>
+				</div>
+				<div class="font_size"><span>字型大小：</span>
+					<!-- 英文用<span>font-size：</span> -->
+					<ul>
+						<li><a href="#" class="small">小</a></li>
+						<li><a href="#" class="medium active">中</a></li>
+						<li><a href="#" class="large">大</a></li>
+					</ul></div>
+					<h1>
+						<a title="宜蘭縣公共圖書館" href="mp?mp=1"><img src="https://library.e-land.gov.tw/wSite/public/LayoutDesign/1605513945472.png" alt="宜蘭縣公共圖書館" title="宜蘭縣公共圖書館"></a>
+					</h1>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+
+
+				<!--讀者登入-->
+				<div class="reader_area">
+					<form  id="memberlogin"  action="" method="post"  class="form_inline">
+						<p class="reader">
+							歡迎，<span class="reader_name">凌網測試讀者</span>
+						</p>
+						<ul>
+							<li class="reader_borrow">借閱中<span>0</span></li>
+							<li class="reader_overdue">逾期未歸<span>0</span></li>
+							<li class="reader_violation">違規天數<span>0</span></li>
+							<li class="reader_booked">預約<span>0</span></li>
+							<li class="reader_arrival">已到館<span>0</span></li>
+						</ul>
+						<div class="btn_grp">
+							<button class="my_study"  onclick="member()" >個人書房</button>
+							<a class="logout" id="btn_logout"  title="登出"	href="sp?xdUrl=/wSite/MemberManager/SSOLogout.jsp&mp=1">登出</a>
+						</div>
+						
+						<script>
+							$("#loggedin").html("凌網測試讀者");
+							$("#login_btn").hide();
+							$("#loggedin").show(); 
+							function member() {
+								window.open('MemberManager/webpacxForward.jsp');
+						//window.open('MemberManager/hylibForward.jsp?rdurl=personalization/personal.jsp');
+					}
+				</script>
+			</form>
+		</div>
+
+		
+		<!-- Search Start -->
+		<div class="search">
+			<form action="">
+				<button type="button" class="close">關閉</button>
+				<div class="form form_inline"> 
+					<div class="form_grp">
+						<label for="mustSameAsId">搜尋</label>
+						<input name="searchKey" id="searchKey" type="text" placeholder="請輸入文字" accesskey="S">
+						<input  name="btnSearch"  id="btnSearch"  type="button"  title="查詢" value="查詢">
+					</div>
+					<div class="btn_grp">
+						<input name="btnadSearch"  id="btnadSearch"  type="button" value="進階搜尋">
+					</div>
+				</div>
+			</form>
+			<script>
+				$("#btnSearch").click(function(){
+					location.href="sp?xdUrl=/wSite/ApBlock/googleSearch.jsp&mp=1&q="+$("#searchKey").val();
+				})
+				$("#btnadSearch").click(function(){
+					window.open("https://www.google.com/advanced_search?q=site:library.e-land.gov.tw/lib&biw=1920&bih=990&site=webhp&hl=zh-TW");
+				})
+			</script>
+		</div>
+		
+		
+		<div class="menu">
+			<ul>
+				<li>
+					<a href="https://webpacx.charlesc.idv.tw/" title="館藏查詢, 另開新視窗." target="_blank">館藏查詢</a>
+				</li>
+				<li>
+					<a href="np?ctNode=5221&mp=1" title="讀者服務">讀者服務</a>
+					<ul>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/personal" title="個人書房">個人書房</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/lendbook" title="行動借閱, 另開新視窗." target="_blank">行動借閱</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/register" title="網路辦證, 另開新視窗." target="_blank">網路辦證</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/faq" title="常見問答, 另開新視窗." target="_blank">常見問答</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/libQA" title="讀者意見, 另開新視窗." target="_blank">讀者意見</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5222&mp=1" title="圖書館資訊">圖書館資訊</a>
+					<ul>
+						<li>
+							<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/Library.jsp&orgId=001&mp=1&idPath=4292_42&ctNode=5236" title="各館資訊">各館資訊</a>
+						</li>
+						<li>
+							<a href="np?ctNode=5237&mp=1&idPath=5217_5222_5237" title="開館時間">開館時間</a>
+						</li>
+						<li>
+							<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/chart.jsp&mp=1&ctNode=5238&deptId=&ctNode=5238" title="即時資訊">即時資訊</a>
+						</li>
+						<li>
+							<a href="lp?ctNode=6223&mp=1&idPath=5217_5222_6223" title="服務與閱覽說明">服務與閱覽說明</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5223&mp=1" title="訊息公告">訊息公告</a>
+					<ul>
+						<li>
+							<a href="lp?ctNode=5239&mp=1&idPath=5217_5223_5239" title="最新消息">最新消息</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&ctNode=5240&mp=1" title="活動查詢">活動查詢</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/SPBlock/lost.jsp&mp=1&ctNode=5241" title="失物招領">失物招領</a>
+						</li>
+						<li>
+							<a href="np?ctNode=5242&mp=1&idPath=5217_5223_5242" title="政府公開資訊">政府公開資訊</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5224&mp=1" title="館藏資源">館藏資源</a>
+					<ul>
+						<li>
+							<a href="http://rrc.ncl.edu.tw/" title="分區資源中心, 另開新視窗." target="_blank">分區資源中心</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/bookrecommend" title="圖書推薦, 另開新視窗." target="_blank">圖書推薦</a>
+						</li>
+						<li>
+							<a href="lp?ctNode=5247&mp=1&idPath=5217_5224_5247" title="電子資源">電子資源</a>
+						</li>
+						<li>
+							<a href="lp?ctNode=6224&mp=1&idPath=5217_5224_6224" title="外部資源">外部資源</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5225&mp=1" title="線上申辦">線上申辦</a>
+					<ul>
+						<li>
+							<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&mp=1&ctNode=5248" title="活動報名">活動報名</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/SPBlock/visitForm.jsp&mp=1&ctNode=5249" title="導覽申請">導覽申請</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/SPBlock/reserveForm.jsp&mp=1&ctNode=5250" title="場地預約">場地預約</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/Survey/SurveyActiveList.jsp&mp=1&ctNode=5251" title="問卷調查, 另開新視窗." target="_blank">問卷調查</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<a onfocus="mlout();" href="javascript:"></a>
+		<noscript>TAB標籤功能，如不執行不影響您資料瀏覽</noscript>
+	</header>
+	<div id="zone.SideBarLeft"></div>
+	<div id="center" class="main mp">
+		<div class="accesskey">
+			<a href="#" accesskey="C" title="中央內容區塊">:::</a>
+		</div>
+
+
+
+
+
+
+		<section class="col-12 full main_image">
+			<div class="container">
+				<div class="mpSlider">
+					<div class="img-container">
+						<a href="#" title="">
+							<picture>
+								<source media="(min-width: 1200px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+								<source media="(min-width: 992px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+								<source media="(min-width: 576px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+								<source media="(max-width: 575px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+								<img data-lazy="images/main_banner01.jpg" alt="banner2" class="cover">
+								<noscript><img src="images/main_banner01.jpg"></noscript>
+							</picture>
+						</a>
+					</div>
+					<div class="img-container">
+						<a href="#" title="">
+							<picture>
+								<source media="(min-width: 1200px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+								<source media="(min-width: 992px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+								<source media="(min-width: 576px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+								<source media="(max-width: 575px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+								<img data-lazy="images/main_banner02.jpg" alt="banner2" class="cover">
+								<noscript><img src="images/main_banner02.jpg"></noscript>
+							</picture>
+						</a>
+					</div>
+					<div class="img-container">
+						<a href="#" title="">
+							<picture>
+								<source media="(min-width: 1200px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+								<source media="(min-width: 992px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+								<source media="(min-width: 576px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+								<source media="(max-width: 575px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+								<img data-lazy="images/main_banner03.jpg" alt="banner3" class="cover">
+								<noscript><img src="images/main_banner03.jpg"></noscript>
+							</picture>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+
+
+		<!--  兩欄樣式 -->
+		<section class="col-4-8">
+			<div class="container w_1000">
+				<div class="col wow fadeInLeft" data-wow-duration=".8s" data-wow-delay="0">
+					<!--bookslider2 star-->
+					<div class="bookSlider2">
+						
+						<div class="book_wrap">
+							<a href="ct?ctNode=6217&mp=1&xItem=10046" alt="老街閱讀三部曲(另開新視窗)" target='_blank'>
+								<div class="img-container">
+									<img src="https://library.e-land.gov.tw/wSite/public/Data/f1606467164839.jpg" alt="老街閱讀三部曲(另開新視窗)">
+								</div>
+							</a>
+						</div>
+						
+						<div class="book_wrap">
+							<a href="ct?ctNode=6217&mp=1&xItem=9948" alt="2020全民閱讀推廣活動" >
+								<div class="img-container">
+									<img src="https://library.e-land.gov.tw/wSite/public/Data/f1606465733751.jpg" alt="2020全民閱讀推廣活動">
+								</div>
+							</a>
+						</div>
+						
+					</div>
+					<!--bookslider2 End-->
+
+				</div>
+
+				<div class="col wow fadeInLeft" data-wow-duration=".8s" data-wow-delay="0s">
+					<div class="news">
+						<h2>最新消息</h2>
+						
+						<form action="" class="form_inline">
+							<div class="form_grp select_library">
+								<div class="rss"><a href="rss?ctNode=5231&mp=1" target="_blank" title="最新消息RSS(另開視窗)"><img src="images/rss.png" alt="最新消息RSS(另開視窗)" /></a></div>
+								<label for="selectSample">選擇館別：</label> 
+								<select name="newsLibSelect" id="newsLibSelect">
+									<option value="">全部</option>
+									
+									<option value="0">宜蘭縣公共圖書館</option>
+									
+									<option value="0">宜蘭縣公共圖書館</option>
+									
+								</select>
+							</div>
+						</form>
+
+						<div class="tabSet">
+							<section class="tabs example-1">
+								<h3 class="tabItem active">
+									<a href="#">全部</a>
+								</h3>
+								<!--選到的頁籤項目-->
+								<div id="newsAll" class="tabContent">
+									<ul> 
+										
+										
+										<li><span class="location_tag">蘇澳鎮立圖書館</span> <time>2020/11/27</time><a
+											href="ct?ctNode=5231&mp=1&xItem=10047" alt="【活動】Friendshape" >【活動】Friendshape</a></li>
+											
+											
+											<li><span class="location_tag">宜蘭縣公共圖書館</span> <time>2020/11/20</time><a
+												href="ct?ctNode=5231&mp=1&xItem=9942" alt="【活動】2020宜蘭縣公共圖書館全民閱讀推廣活動－銀髮族的保健" >【活動】2020宜蘭縣公共圖書館全民閱讀推廣活動－銀髮族的保健</a></li>
+												
+												
+												<li><span class="location_tag">羅東鎮立圖書館</span> <time>2020/11/20</time><a
+													href="ct?ctNode=5231&mp=1&xItem=9943" alt="【活動】白雲麵包、信誼寶寶書活動" >【活動】白雲麵包、信誼寶寶書活動</a></li>
+													
+													
+													<li><span class="location_tag">羅東鎮立圖書館</span> <time>2020/11/20</time><a
+														href="ct?ctNode=5231&mp=1&xItem=9944" alt="【活動】大野狼真的危險嗎？大餓狼和小豬村" >【活動】大野狼真的危險嗎？大餓狼和小豬村</a></li>
+														
+														
+														<li><span class="location_tag">蘇澳鎮立圖書館</span> <time>2020/11/20</time><a
+															href="ct?ctNode=5231&mp=1&xItem=9945" alt="【活動】Thank You, Omu!、Piggybook、麥基先生請假的那一天" >【活動】Thank You, Omu!、Piggybook、麥基先生請假的那一天</a></li>
+															
+
+														</ul> 
+														<a href="lp?ctNode=5231&mp=1" class="more">更多消息</a> 
+													</div>
+													<script> 
+														$("#newsLibSelect").change(function(){
+															$("#newsAll").load("ApBlock/ajaxNews.jsp?topcat=&deptId="+$(this).val()); 
+														}) 
+													</script>
+													
+
+
+
+													<h3 class="tabItem">
+														<a href="#">活動</a>
+													</h3>
+													<div id="newsAll10" class="tabContent">
+														<ul>
+															
+															<li><span class="location_tag">宜蘭縣公共圖書館</span> <time>2020/11/20</time><a
+																href="ct?ctNode=5231&mp=1&xItem=9942" 【活動】2020宜蘭縣公共圖書館全民閱讀推廣活動－銀髮族的保健 >【活動】2020宜蘭縣公共圖書館全民閱讀推廣活動－銀髮族的保健</a></li>
+																
+																<li><span class="location_tag">羅東鎮立圖書館</span> <time>2020/11/20</time><a
+																	href="ct?ctNode=5231&mp=1&xItem=9943" 【活動】白雲麵包、信誼寶寶書活動 >【活動】白雲麵包、信誼寶寶書活動</a></li>
+																	
+																	<li><span class="location_tag">羅東鎮立圖書館</span> <time>2020/11/20</time><a
+																		href="ct?ctNode=5231&mp=1&xItem=9944" 【活動】大野狼真的危險嗎？大餓狼和小豬村 >【活動】大野狼真的危險嗎？大餓狼和小豬村</a></li>
+																		
+																		<li><span class="location_tag">蘇澳鎮立圖書館</span> <time>2020/11/20</time><a
+																			href="ct?ctNode=5231&mp=1&xItem=9945" 【活動】Thank You, Omu!、Piggybook、麥基先生請假的那一天 >【活動】Thank You, Omu!、Piggybook、麥基先生請假的那一天</a></li>
+																			
+																			<li><span class="location_tag">宜蘭縣立圖書館</span> <time>2020/11/20</time><a
+																				href="ct?ctNode=5231&mp=1&xItem=9946" 【活動】2020宜蘭分區資源中心推廣活動 >【活動】2020宜蘭分區資源中心推廣活動</a></li>
+																				
+																			</ul> 
+																			<a href="lp?ctNode=5231&mp=1&idPath=&xq_xCat=10&mp=1"  class="more">更多消息</a>
+																			
+																		</div>
+																		<script> 
+																			$("#newsLibSelect").change(function(){
+																				$("#newsAll10").load("ApBlock/ajaxNews.jsp?topcat=10&deptId="+$(this).val()); 
+																			}) 
+																		</script>
+																		
+
+
+
+																		<h3 class="tabItem">
+																			<a href="#">公告</a>
+																		</h3>
+																		<div id="newsAll20" class="tabContent">
+																			<ul>
+																				
+																				<li><span class="location_tag">宜蘭縣公共圖書館</span> <time>2020/09/21</time><a
+																					href="ct?ctNode=5231&mp=1&xItem=9939" 【公告】109年度蘭陽文學叢書作家作品集入選作品公布 >【公告】109年度蘭陽文學叢書作家作品集入選作品公布</a></li>
+																					
+																					<li><span class="location_tag">頭城鎮立圖書館</span> <time>2020/08/17</time><a
+																						href="ct?ctNode=5231&mp=1&xItem=9952" 【公告】頭城鎮立圖書館休館公告 >【公告】頭城鎮立圖書館休館公告</a></li>
+																						
+																						<li><span class="location_tag">宜蘭縣公共圖書館</span> <time>2020/08/05</time><a
+																							href="ct?ctNode=5231&mp=1&xItem=9940" 【公告】文化局因應疫情相關事宜 >【公告】文化局因應疫情相關事宜</a></li>
+																							
+																							<li><span class="location_tag">宜蘭縣公共圖書館</span> <time>2020/06/09</time><a
+																								href="ct?ctNode=5231&mp=1&xItem=9953" 【公告】為配合國發會e管家去任務化，自109年12月31日起停止與本局介接服務 >【公告】為配合國發會e管家去任務化，自109年12月31日起停止與本局介接服務</a></li>
+																								
+																								<li><span class="location_tag">宜蘭縣公共圖書館</span> <time>2020/05/18</time><a
+																									href="ct?ctNode=5231&mp=1&xItem=9941" 【公告】109年6月1日起啟動密碼強度變更措施 >【公告】109年6月1日起啟動密碼強度變更措施</a></li>
+																									
+																								</ul> 
+																								<a href="lp?ctNode=5231&mp=1&idPath=&xq_xCat=20&mp=1"  class="more">更多消息</a>
+																								
+																							</div>
+																							<script> 
+																								$("#newsLibSelect").change(function(){
+																									$("#newsAll20").load("ApBlock/ajaxNews.jsp?topcat=20&deptId="+$(this).val()); 
+																								}) 
+																							</script>
+																							
+																						</section>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</section>
+																	<!--  兩欄樣式 8-4 -->
+
+
+
+
+
+
+
+																	<section class="col-12">
+																		<div class="container">
+																			<div class="hot_service  w_1000">
+																				<div class="leftblock wow fadeInLeft"  data-wow-duration=".5s">
+																					<h2 class="wow fadeInDown" data-wow-duration=".8s">熱門服務</h2>
+																					<img src="images/hot_service_bg.png" alt=""></div>
+																					<div class="rightblock  wow fadeInRight"  data-wow-duration=".8s">
+																						<ul>
+																							
+																							<li><a href="https://webpacx.charlesc.idv.tw" target='_blank'><img src="https://library.e-land.gov.tw/wSite/public/Data/f1605599521405.png" alt="館藏查詢(另開新視窗)"></a></li>
+																							
+																							<li><a href="https://webpacx.charlesc.idv.tw/personal" target='_blank'><img src="https://library.e-land.gov.tw/wSite/public/Data/f1606445783756.png" alt="個人書房(另開新視窗)"></a></li>
+																							
+																							<li><a href="http://117.56.213.54/wSite/np?ctNode=5225&mp=1&idPath=5217_5225" ><img src="https://library.e-land.gov.tw/wSite/public/Data/f1605748180093.png" alt="線上申辦"></a></li>
+																							
+																							<li><a href="https://webpacx.charlesc.idv.tw/lendbook" target='_blank'><img src="https://library.e-land.gov.tw/wSite/public/Data/f1605599711157.png" alt="行動借閱(另開新視窗)"></a></li>
+																							
+																							<li><a href="ct?ctNode=5231&mp=1&xItem=9906" ><img src="https://library.e-land.gov.tw/wSite/public/Data/f1605599768824.png" alt="電子資源"></a></li>
+																							
+																							<li><a href="https://webpacx.charlesc.idv.tw/faq" target='_blank'><img src="https://library.e-land.gov.tw/wSite/public/Data/f1606445810830.png" alt="常見問答(另開新視窗)"></a></li>
+																							
+																						</ul>
+																					</div>
+																				</div>
+																			</div>
+																		</section>
+																		
+
+
+
+
+
+
+																		<section class="col-12">
+																			<div class="container">
+																				<div class="book_display  w_1000">
+																					<h2 class="wow fadeInDown" data-wow-duration=".8s">新書展示</h2>
+																					
+																					<div class="bookSlider">
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=457717" title="代謝力UP減醣好好 :體重輕鬆瘦, 體脂降10%的升級版技巧(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986136535.jpg">
+																								</div>
+																								<div class="book_name">代謝力UP減醣好好 :體重輕鬆瘦, 體脂降10%的升級版技巧</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=463317" title="呱啦啦來了!(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986479942.jpg">
+																								</div>
+																								<div class="book_name">呱啦啦來了!</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=469465" title="證詞(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957108309.jpg">
+																								</div>
+																								<div class="book_name">證詞</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=469371" title="奧地利最美繪旅行 :美景.人文.藝術.健行深度漫遊(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986359755.jpg">
+																								</div>
+																								<div class="book_name">奧地利最美繪旅行 :美景.人文.藝術.健行深度漫遊</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=469161" title="一輩子不復胖的1 : 1間歇式減重法 :利用體重設定值, 打造最健康的瘦身計畫(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957138128.jpg">
+																								</div>
+																								<div class="book_name">一輩子不復胖的1 : 1間歇式減重法 :利用體重設定值, 打造最健康的瘦身計畫</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=463700" title="阿亮老師趣說中國歷史 :宋元~盛清(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986981083.jpg">
+																								</div>
+																								<div class="book_name">阿亮老師趣說中國歷史 :宋元~盛清</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=464255" title="為什麼我們製造出玻璃心世代? :本世紀最大規模心理危機, 看美國高等教育的「安全...(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986344735.jpg">
+																								</div>
+																								<div class="book_name">為什麼我們製造出玻璃心世代? :本世紀最大規模心理危機, 看美國高等教育的「安全...</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=464946" title="寄生上流 :原著劇本 = Parasite : screenplay(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986973267.jpg">
+																								</div>
+																								<div class="book_name">寄生上流 :原著劇本 = Parasite : screenplay</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=470948" title="Camilla the Cupcake Fairy's Magic Sprink...(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/184/184879925.jpg">
+																								</div>
+																								<div class="book_name">Camilla the Cupcake Fairy's Magic Sprink...</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=452365" title="在最好的時候, 遇見你(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="https://cdn.kingstone.com.tw/book/images/product/20154/2015440540267/2015440540267b.jpg">
+																								</div>
+																								<div class="book_name">在最好的時候, 遇見你</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=470925" title="An Alphabet(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/000/000818251.jpg">
+																								</div>
+																								<div class="book_name">An Alphabet</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=466695" title="故事臺灣史.4,.22個代表臺灣的關鍵事物(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957503610.jpg">
+																								</div>
+																								<div class="book_name">故事臺灣史.4,.22個代表臺灣的關鍵事物</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=469424" title="Sword Art Online刀劍神域(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957743216.jpg">
+																								</div>
+																								<div class="book_name">Sword Art Online刀劍神域</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=469176" title="意外的國父 :蔣介石、蔣經國、李登輝與現代臺灣(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986552416.jpg">
+																								</div>
+																								<div class="book_name">意外的國父 :蔣介石、蔣經國、李登輝與現代臺灣</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=469249" title="悸風之夏 Summer wind(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986992301.jpg">
+																								</div>
+																								<div class="book_name">悸風之夏 Summer wind</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=470942" title="Beautiful Birds(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/006/006257305.jpg">
+																								</div>
+																								<div class="book_name">Beautiful Birds</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=464634" title="貓巧可環遊世界(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957503564.jpg">
+																								</div>
+																								<div class="book_name">貓巧可環遊世界</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=470916" title="A Frog in the Bog(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/148/148144452.jpg">
+																								</div>
+																								<div class="book_name">A Frog in the Bog</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=453376" title="淡蘭古道 :北路 = Tamsui-Kavalan trails(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="https://cdn.kingstone.com.tw/book/images/product/20199/2019920511662/2019920511662b.jpg">
+																								</div>
+																								<div class="book_name">淡蘭古道 :北路 = Tamsui-Kavalan trails</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=466191" title="少才是力量 :簡單高效6大原則(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957905439.jpg">
+																								</div>
+																								<div class="book_name">少才是力量 :簡單高效6大原則</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=464967" title="世界真有趣!探索海洋的奧妙 The mysteries of the ocean(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986987072.jpg">
+																								</div>
+																								<div class="book_name">世界真有趣!探索海洋的奧妙 The mysteries of the ocean</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=394735" title="豬先生和他的小小好朋友(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="https://cdn.kingstone.com.tw/book/images/product/20152/2015232612271/2015232612271b.jpg">
+																								</div>
+																								<div class="book_name">豬先生和他的小小好朋友</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=468866" title="龍族英雄[螭吻] :惡魔的屠龍任務(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/986/986550364.jpg">
+																								</div>
+																								<div class="book_name">龍族英雄[螭吻] :惡魔的屠龍任務</div>
+																							</a>
+																						</div>
+																						
+																						<div class="book_wrap">
+																							<a href="http://webpac.ilccb.gov.tw/bookDetail.do?id=452946" title="許願椅.I(另開新視窗)" target='_blank'>
+																								<div class="img-container">
+																									<img src="http://cdnec.sanmin.com.tw/product_images/957/957048703.jpg">
+																								</div>
+																								<div class="book_name">許願椅.I</div>
+																							</a>
+																						</div>
+																						
+																					</div>
+																					<!--bookslider End-->
+																					<a href="https://webpac.ilccb.gov.tw/newbookList.do" class="more" target="_blank">更多新書</a>
+																					
+																				</div>
+																			</div>
+																		</section>
+
+
+
+
+
+
+
+																		<section id="Libs" class="col-12 library_info">
+																			<div id="info_content" class="container">
+																				<h2 class="wow fadeIn" data-wow-duration=".8s">各館資訊</h2>
+																				<form action="">
+																					<div class="library_select">
+																						<!-- PC版選單 -->
+																						<div class="tabSet">
+																							<section class="tabs cisinfo">
+																								
+																								<h3  class="tabItem active"
+																								><a href="#info_content" id="btn001" alt="宜蘭縣立圖書館">宜蘭縣立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605600079595.png" alt="宜蘭縣立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn002" alt="宜蘭市立圖書館">宜蘭市立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605600184019.png" alt="宜蘭市立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn003" alt="羅東鎮立圖書館">羅東鎮立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605602299414.png" alt="羅東鎮立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn004" alt="蘇澳鎮立圖書館">蘇澳鎮立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605602950286.png" alt="蘇澳鎮立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn005" alt="頭城鎮立圖書館">頭城鎮立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605602991559.png" alt="頭城鎮立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn006" alt="礁溪鄉立圖書館">礁溪鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603063368.png" alt="礁溪鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn007" alt="壯圍鄉立圖書館">壯圍鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603093705.png" alt="壯圍鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn008" alt="員山鄉立圖書館">員山鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603260706.png" alt="員山鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn009" alt="冬山鄉立圖書館">冬山鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603292186.png" alt="冬山鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn010" alt="五結鄉立圖書館">五結鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603413128.png" alt="五結鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn011" alt="三星鄉立圖書館">三星鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603439365.png" alt="三星鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn012" alt="大同鄉立圖書館">大同鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603465488.png" alt="大同鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																								<h3  class="tabItem" ><a href="#info_content" id="btn013" alt="南澳鄉立圖書館">南澳鄉立圖書館</a></h3>
+																								<!--選到的頁籤項目-->
+																								<div class="tabContent">
+																									<div class="cis">
+																										<img src="https://library.e-land.gov.tw/wSite/public/Data/f1605603491460.png" alt="南澳鄉立圖書館">
+																									</div>
+																								</div>
+																								
+																							</section>
+																						</div>
+																						<!-- 手機版選單 -->
+																						<div class="form_grp mobile_select">
+																							<select name="Libselect" id="Libselect">
+																								
+																								<option value="001"
+																								selected >宜蘭縣立圖書館</option>
+																								
+																								<option value="002"
+																								>宜蘭市立圖書館</option>
+																								
+																								<option value="003"
+																								>羅東鎮立圖書館</option>
+																								
+																								<option value="004"
+																								>蘇澳鎮立圖書館</option>
+																								
+																								<option value="005"
+																								>頭城鎮立圖書館</option>
+																								
+																								<option value="006"
+																								>礁溪鄉立圖書館</option>
+																								
+																								<option value="007"
+																								>壯圍鄉立圖書館</option>
+																								
+																								<option value="008"
+																								>員山鄉立圖書館</option>
+																								
+																								<option value="009"
+																								>冬山鄉立圖書館</option>
+																								
+																								<option value="010"
+																								>五結鄉立圖書館</option>
+																								
+																								<option value="011"
+																								>三星鄉立圖書館</option>
+																								
+																								<option value="012"
+																								>大同鄉立圖書館</option>
+																								
+																								<option value="013"
+																								>南澳鄉立圖書館</option>
+																								
+																							</select>
+
+																						</div>
+																					</div>
+																				</form>
+																				
+																				<!-- h3 class="library_name"></h3-->
+																				<div id="info_content" class="info_content">
+																					<div class="info_list wow fadeIn" data-wow-duration=".3s">
+																						<div class="col">
+																							<ul>
+																								<li class="info_address">260 宜蘭市復興路二段101號</li>
+																								<li class="info_phone">(03)932-2440分機230、231</li>
+																								<li class="info_opening">
+																									<span class="title">開館時間</span>
+																									圖書館：週二至週日8：30-20：00<br> 
+																									兒童室：週二至週日8：30-20：00<br>
+																									青年閱覽室：週一8：00-17：00<br>週二至週日8：00-20：00
+																								</li>
+																								<li class="info_closing">
+																									<span class="title">休館日</span>
+																									週一/民俗節日/國定假日/每月最後一日
+																								</li>
+																							</ul> 
+																						</div>
+																						<div class="col">
+																							<ul>
+																								<li class="info_email"><a href="mailto:ilccbservice@mail.e-land.gov">ilccbservice@mail.e-land.gov</a></li>
+																								<li class="info_fb"><a href="https://www.facebook.com/elandccb" title="宜蘭縣立圖書館" target="_blank" alt="另開視窗">宜蘭縣立圖書館</a></li>
+																							</ul>
+																							<div class="more"><a href="sp?xdUrl=/wSite/ApBlock/Library.jsp&orgId=001&mp=1&idPath=4292_4295" title="宜蘭縣立圖書館" target="_blank" alt="另開視窗">更多資訊</a></div>
+																						</div>
+																						<div class="col">
+																							<div class="calendar">
+
+																							</div>
+																							<div class="remark">
+																								<ul>
+																									<li class="close-day">休館日</li>
+																									<li class="act-day">活動日</li>
+																								</ul>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</section>
+																	
+
+
+
+																	<script>     
+																		$(function() {
+																			var arr = [];
+																			
+																			
+																			$('.calendar').pignoseCalendar({
+																				lang: 'ch',
+																				disabledWeekdays: [1],
+																				toggle: true, 
+																				disabledDates: [
+               // '2019-11-30',
+               ],
+               scheduleOptions: {
+               	colors: {
+               		event: '#f1f1f1',
+               	}
+               },
+               schedules: [
+               
+               {
+               	name: 'event',
+               	date: '2020-11-17'
+               }, 
+               
+               
+               
+               {
+              //  name: 'event',
+              //  date: '2019-11-23'
+          }], 
+          select: function(dates, context) {
+          	var $this = $(this); 
+				// You can get target element in `context` variable, This element is same `$(this)`.
+				var $element = context.element;
+				var $calendar = context.calendar;
+				console.log(   dates[0]["_i"]   );
+				console.log(  arr.includes(dates[0]["_i"]) );
+				if( arr.includes(dates[0]["_i"]) ){
+					location.href='lp?ctNode=5239&mp=1&idPath=&xq_xCat=&mp=1&q_xpostDate_S='+ dates[0]["_i"] +'&q_xpostDate_E='+ dates[0]["_i"]  ;
+				}
+			},
+			prev: function(info, context) {
+				/**
+				 * @params context PignoseCalendarPageInfo
+				 * @params context PignoseCalendarContext
+				 * @returns void
+				 */
+
+				 // This is clicked arrow button element.
+				 var $this = $(this);
+
+				 // `info` parameter gives useful information of current date.
+				 var type = info.type; // it will be `prev`.
+				 var year = info.year; // current year (number type), ex: 2017
+				 var month = info.month; // current month (number type), ex: 6
+				 var day = info.day; // current day (number type), ex: 22
+				 console.log(year+"-"+month);
+				 // You can get target element in `context` variable.
+				 var $element = context.element;
+
+				 // You can also get calendar element, It is calendar view DOM.
+				 var $calendar = context.calendar; 
+				 $(".tip").load("ApBlock/Calendar.jsp?year="+year+"&month="+month+"&deptId=001");
+				},
+				next: function(info, context) {
+				/**
+				 * @params context PignoseCalendarPageInfo
+				 * @params context PignoseCalendarContext
+				 * @returns void
+				 */
+
+				 // This is clicked arrow button element.
+				 var $this = $(this);
+
+				 // `info` parameter gives useful information of current date.
+				 var type = info.type; // it will be `next`.
+				 var year = info.year; // current year (number type), ex: 2017
+				 var month = info.month; // current month (number type), ex: 6
+				 var day = info.day; // current day (number type), ex: 22
+				 console.log(year+"-"+month);
+				 // You can get target element in `context` variable.
+				 var $element = context.element;
+				 $(".tip").load("ApBlock/Calendar.jsp?year="+year+"&month="+month+"&deptId=001");
+				 // You can also get calendar element, It is calendar view DOM.
+				 var $calendar = context.calendar;
+				}
+
+			});
+																		});
+																	</script>
+																	
+																	<script> 
+																		$("#btn010").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=010");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn011").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=011");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn001").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=001");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn012").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=012");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn002").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=002");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn013").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=013");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn003").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=003");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn004").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=004");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn005").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=005");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn006").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=006");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn007").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=007");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn008").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=008");  
+																		}) 
+																	</script>
+
+																	
+																	<script> 
+																		$("#btn009").click(function(){
+																			$("#Libs").load("ApBlock/ajaxLib.jsp?OrgId=009");  
+																		}) 
+																	</script>
+
+																	
+																	<script>
+																		$("#Libselect").change( function() {
+																			$("#Libs").load( "ApBlock/ajaxLib.jsp?OrgId=" + $(this).val());
+																		})
+																	</script>
+
+																	<section class="ad">
+																		<div class="container">
+																			<div class="adSlider">
+																				
+
+
+
+																			</div>
+																		</div>
+																	</section></div>
+																	<section class="fatfooter">
+																		<section class="fatfooter">
+																			<div class="container">
+																				<button type="button" name="收合" class="btn btn-fatfooter">CLOSE</button>
+																				<nav>
+																					<ul>
+																						<li>
+																							<a href="https://webpacx.charlesc.idv.tw/" title="館藏查詢, 另開新視窗." target="_blank">館藏查詢</a>
+																						</li>
+																						<li>
+																							<a href="np?ctNode=5221&mp=1" title="讀者服務">讀者服務</a>
+																							<ul>
+																								<li>
+																									<a href="https://webpacx.charlesc.idv.tw/personal" title="個人書房">個人書房</a>
+																								</li>
+																								<li>
+																									<a href="https://webpacx.charlesc.idv.tw/lendbook" title="行動借閱, 另開新視窗." target="_blank">行動借閱</a>
+																								</li>
+																								<li>
+																									<a href="https://webpacx.charlesc.idv.tw/register" title="網路辦證, 另開新視窗." target="_blank">網路辦證</a>
+																								</li>
+																								<li>
+																									<a href="https://webpacx.charlesc.idv.tw/faq" title="常見問答, 另開新視窗." target="_blank">常見問答</a>
+																								</li>
+																								<li>
+																									<a href="https://webpacx.charlesc.idv.tw/libQA" title="讀者意見, 另開新視窗." target="_blank">讀者意見</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li>
+																							<a href="np?ctNode=5222&mp=1" title="圖書館資訊">圖書館資訊</a>
+																							<ul>
+																								<li>
+																									<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/Library.jsp&orgId=001&mp=1&idPath=4292_42&ctNode=5236" title="各館資訊">各館資訊</a>
+																								</li>
+																								<li>
+																									<a href="np?ctNode=5237&mp=1&idPath=5217_5222_5237" title="開館時間">開館時間</a>
+																								</li>
+																								<li>
+																									<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/chart.jsp&mp=1&ctNode=5238&deptId=&ctNode=5238" title="即時資訊">即時資訊</a>
+																								</li>
+																								<li>
+																									<a href="lp?ctNode=6223&mp=1&idPath=5217_5222_6223" title="服務與閱覽說明">服務與閱覽說明</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li>
+																							<a href="np?ctNode=5223&mp=1" title="訊息公告">訊息公告</a>
+																							<ul>
+																								<li>
+																									<a href="lp?ctNode=5239&mp=1&idPath=5217_5223_5239" title="最新消息">最新消息</a>
+																								</li>
+																								<li>
+																									<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&ctNode=5240&mp=1" title="活動查詢">活動查詢</a>
+																								</li>
+																								<li>
+																									<a href="sp?xdUrl=/wSite/SPBlock/lost.jsp&mp=1&ctNode=5241" title="失物招領">失物招領</a>
+																								</li>
+																								<li>
+																									<a href="np?ctNode=5242&mp=1&idPath=5217_5223_5242" title="政府公開資訊">政府公開資訊</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li>
+																							<a href="np?ctNode=5224&mp=1" title="館藏資源">館藏資源</a>
+																							<ul>
+																								<li>
+																									<a href="http://rrc.ncl.edu.tw/" title="分區資源中心, 另開新視窗." target="_blank">分區資源中心</a>
+																								</li>
+																								<li>
+																									<a href="https://webpacx.charlesc.idv.tw/bookrecommend" title="圖書推薦, 另開新視窗." target="_blank">圖書推薦</a>
+																								</li>
+																								<li>
+																									<a href="lp?ctNode=5247&mp=1&idPath=5217_5224_5247" title="電子資源">電子資源</a>
+																								</li>
+																								<li>
+																									<a href="lp?ctNode=6224&mp=1&idPath=5217_5224_6224" title="外部資源">外部資源</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li>
+																							<a href="np?ctNode=5225&mp=1" title="線上申辦">線上申辦</a>
+																							<ul>
+																								<li>
+																									<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&mp=1&ctNode=5248" title="活動報名">活動報名</a>
+																								</li>
+																								<li>
+																									<a href="sp?xdUrl=/wSite/SPBlock/visitForm.jsp&mp=1&ctNode=5249" title="導覽申請">導覽申請</a>
+																								</li>
+																								<li>
+																									<a href="sp?xdUrl=/wSite/SPBlock/reserveForm.jsp&mp=1&ctNode=5250" title="場地預約">場地預約</a>
+																								</li>
+																								<li>
+																									<a href="sp?xdUrl=/wSite/Survey/SurveyActiveList.jsp&mp=1&ctNode=5251" title="問卷調查, 另開新視窗." target="_blank">問卷調查</a>
+																								</li>
+																							</ul>
+																						</li>
+																					</ul>
+																				</nav>
+																			</div>
+																		</section>
+																		
+																		
+																		
+																		
+																		
+
+																		
+																		<!-- footer Start-->
+																		<footer>
+																			<div class="container">
+																				<a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁尾區">:::</a>
+																				<div class="footer_info">
+																					<p class="address">
+																						26051 宜蘭縣宜蘭市復興路二段101號    電話：(03)9322440<br>
+																						信箱：ilccbservice@mail.e-land.gov.tw
+																						
+																						<span class="update">更新日期：<em>2020/12/01</em></span><span class="counter">瀏覽人次：<em>211026</em></span>
+																					</p>
+																					<div class="footer_icon">
+																						<ul>
+																							<li>
+																								<a target="_blank" href="https://www.facebook.com/elandccb" title="另開視窗">
+																									<img src="images/f-icon-fb.png" alt="facebook">
+																								</a>
+																							</li>
+					<!-- li>
+						<a target="_blank" href="javascript:;" title="另開視窗">
+							<img src="images/f-icon-youtube.png" alt="youtube">
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="javascript:;" title="另開視窗">
+							<img src="images/f-icon-ig.png" alt="ig">
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="javascript:;" title="另開視窗">
+							<img src="images/basic/accessibility2.jpg" alt="">
+						</a>
+					</li -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 footer_bottom">
+		<div class="container">
+			<div class="footer_order">
+				<form id="emailForm" action="sp">
+					<div class="form_grp form_inline">
+						<label for="email"></label>
+						<input name="email" id="email" type="text" placeholder="請輸入EMAIL">
+						<button onClick="return checkEmail('O');">訂閱</button>
+					</div>
+					<input name="fstr" id="fstr" value="" type="hidden" />
+					<input name="xdUrl" value="/wSite/Epaper/EpaperOrder.jsp" type="hidden" />
+				</form>
+			</div>
+			<div class="container">
+				<ul class="footer_link">
+					<li><a href="ct?xItem=9934&ctNode=6220&mp=1" target="_blank" title="隱私權政策(另開視窗)">隱私權政策</a></li>
+					<li><a href="ct?xItem=9933&ctNode=6220&mp=1" target="_blank" title="網站安全政策(另開視窗)">網站安全政策</a></li>
+					<li><a href="ct?xItem=10030&ctNode=6220&mp=1" target="_blank" title="機關網站著作權聲明(另開視窗)">機關網站著作權聲明</a></li>
+				</ul>
+			</div>
+			<p class="copyright">Copyright 2020(C)宜蘭縣政府文化局 宜蘭縣圖書館All Rights Reserved.</p>
+		</div>
+	</div>
+</footer>
+<!-- footer End -->
+<a href="javascript:;" class="scrollToTop">回頁首</a>
+<!-- JQ -->
+<script src="js/jquery-3.5.1.min.js"></script>
+<!-- 外掛 plugin js -->
+<script src="vendor/jquery.easing.min.js"></script><!-- ease -->
+<script src="vendor/slick/slick.js "></script><!-- slick -->
+<script src="vendor/slick/slick-lightbox.js "></script><!-- slick lightbox -->
+<script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
+<script src="vendor/picturefill/picturefill.min.js" async></script><!-- picturefill -->
+<script src="vendor/scrolltable/jquery.scroltable.min.js"></script>
+<script src="vendor/pg_calendar/js/pignose.calendar.full.js"></script>
+<!-- hyUI -->
+<script src="js/hyui.js"></script>
+<!-- 客製js -->
+<script src="js/customize.js"></script>
+<!-- WOW -->
+<script src="vendor/wow/wow.min.js"></script>
+<script>
+// new WOW().init();
+wow = new WOW(
+{
+		boxClass:     'wow',      // default
+		animateClass: 'animated', // default
+		offset:       0,          // default
+		mobile:       false,       // default
+		live:         true        // default
+	}
+	)
+wow.init();
+
+function checkEmail(str){ 
+	$("#fstr").val(str);
+	$("#emailForm").submit();
+	return true; 
+}
+</script></section>
+</div>
+</body>
+</html>

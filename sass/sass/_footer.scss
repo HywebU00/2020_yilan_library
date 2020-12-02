@@ -66,9 +66,12 @@ footer {
         font-size: .813em;
         color:#fff;
         .container{
-         border-top: 1px solid #638c73; 
-     }
-     .copyright{
+           border-top: 1px solid #638c73;
+           .container{
+            border: none;
+        }
+    }
+    .copyright{
         float: right;
         padding:.5em 0;
         @include screen('mobile') {
@@ -96,8 +99,23 @@ footer {
         }
     }
     @include screen('mobile') {
-     float: none; 
- }
+       float: none; 
+   }
+}
+
+.footer_link{
+    @include li-reset;
+    li{
+        display: inline-block;
+        margin-right: 1em;
+        a{
+            color:#fff;
+            &:hover, &:focus{
+                color: #fdffd4;
+            }  
+        }
+
+    }
 }
 
 p {
