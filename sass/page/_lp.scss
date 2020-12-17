@@ -189,45 +189,45 @@
                 min-width: 6em;
                 border-radius: 3px;
                 background-color: rgba(255,255,255,1);
-        @include box-sizing;
-        &:hover, &.active, &:focus{
-            background: $importantColor;
-            color:#fff;
-            box-shadow:none;
-        }
+                @include box-sizing;
+                &:hover, &.active, &:focus{
+                    background: $importantColor;
+                    color:#fff;
+                    box-shadow:none;
+                }
 
-    }
-}
-}
-
-.link_grp {
-    padding-top: 0;
-    ul{
-        list-style: none;
-        padding:0 0 10px 0;
-        width: 100%;
-
-        @include screen("mobile") {
-            display: block;
-            overflow: hidden;
+            }
         }
     }
 
-    li {
-        display: inline-block;
-        margin: 0 0 .5em;
-        box-sizing: border-box;
-        color: $color-word;
-        text-align: center;
-        width: 19.2%;
-        @include screen('tablet') {
-            width: 32.2%; 
-        }
-        @include screen('xs_mobile') {
-            width: 49%; 
+    .link_grp {
+        padding-top: 0;
+        ul{
+            list-style: none;
+            padding:0 0 10px 0;
+            width: 100%;
+
+            @include screen("mobile") {
+                display: block;
+                overflow: hidden;
+            }
         }
 
-        a{
+        li {
+            display: inline-block;
+            margin: 0 0 .5em;
+            box-sizing: border-box;
+            color: $color-word;
+            text-align: center;
+            width: 19.2%;
+            @include screen('tablet') {
+                width: 32.2%; 
+            }
+            @include screen('xs_mobile') {
+                width: 49%; 
+            }
+
+            a{
                 // background: #fff;
                 // color: darken($primaryColor, 10);
                 // display: inline-block;
@@ -386,8 +386,14 @@
 }
 .lost_list{
     tbody{
-        background-color: #fff;
+        // background-color: #fff;
     }
+    table{
+        background: transparent !important;
+        td{
+          background-color: #fff;  
+      }
+  }
 }
 //活動列表頁
 .activities_list{

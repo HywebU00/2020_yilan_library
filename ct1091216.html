@@ -1,0 +1,588 @@
+<!DOCTYPE html><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>宜蘭縣公共圖書館-服務與閱覽說明-設施服務收費標準</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="vendor/slick/slick.css">
+	<link rel="stylesheet" href="vendor/slick/slick-theme.css">
+	<link rel="stylesheet" href="vendor/pg_calendar/css/pignose.calendar.min.css">
+	<link rel="stylesheet" href="vendor/animate.css">
+	<link rel="stylesheet" href="css/hyui.css">
+	<script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="container">
+				<div class="nav_block">
+					<nav class="navigation"><ul>
+						<li><a href="sitemap">網站導覽</a></li>
+						<li><a href="mp">回首頁</a></li>
+
+					</ul></nav>
+					<button class="search_btn">全站檢索</button><button id="login_btn" class="login_btn">讀者登入</button>
+					<div class="loggedin" id="loggedin" style="display: none">讀者</div>
+				</div>
+				<div class="font_size"><span>字型大小：</span>
+					<!-- 英文用<span>font-size：</span> -->
+					<ul>
+						<li><a href="#" class="small">小</a></li>
+						<li><a href="#" class="medium active">中</a></li>
+						<li><a href="#" class="large">大</a></li>
+					</ul></div>
+					<h1>
+						<a title="宜蘭縣立圖書館" href="mp?mp=1"><img src="http://117.56.213.54/wSite/public/LayoutDesign/1605513849222.png" alt="宜蘭縣立圖書館" title="宜蘭縣立圖書館"></a>
+					</h1>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!--未登入-->
+
+				<div class="reader_login">
+					<form id="login" name="login" method="post" class="form_inline"
+					action="/wSite/sp?xdUrl=/wSite/MemberManager/HyLibSSOLoginService.jsp">
+
+
+					<div class="form_inline">
+						<button type="button" class="close">關閉</button>
+						<div class="form_grp">
+							<label for="account">帳號：</label>
+							<input name="account"  id="account" type="text" placeholder="請輸入帳號">
+						</div>
+						<div class="form_grp">
+							<label for="passwd">密碼：</label>
+							<input name="passwd" id="passwd" type="password" placeholder="請輸入密碼">
+						</div>
+						<div class="check_grp">
+							<label><input type="checkbox">記住帳號</label>
+						</div>
+						<div class="btn_grp">
+							<buttom type="button" id="btn_sub" class="logout">登入</buttom>
+						</div>
+					</div> 
+				</form>
+			</div>
+
+
+
+			<script>
+				$("#login_btn").show();
+				$("#loggedin").hide();
+				$("#btn_sub").click(function() {
+					if ($("#account").val() == '') {
+						alert('請輸入帳號');
+						return  false;
+					} else if ($("#passwd").val() == '') {
+						alert('請輸入密碼');
+						return  false;
+					} else {
+						$("#login").submit();
+					}
+
+				});
+			</script>
+
+			<!-- Search Start -->
+			<div class="search">
+				<form action="">
+					<button type="button" class="close">關閉</button>
+					<div class="form form_inline"> 
+						<div class="form_grp">
+							<label for="mustSameAsId">搜尋</label>
+							<input name="searchKey" id="searchKey" type="text" placeholder="請輸入文字" accesskey="S">
+							<input  name="btnSearch"  id="btnSearch"  type="button"  title="查詢" value="查詢">
+						</div>
+						<div class="btn_grp">
+							<input name="btnadSearch"  id="btnadSearch"  type="button" value="進階搜尋">
+						</div>
+					</div>
+				</form>
+				<script>
+					$("#btnSearch").click(function(){
+						location.href="sp?xdUrl=/wSite/ApBlock/googleSearch.jsp&mp=1&q="+$("#searchKey").val();
+					})
+					$("#btnadSearch").click(function(){
+						window.open("https://www.google.com/advanced_search?q=site:library.e-land.gov.tw/lib&biw=1920&bih=990&site=webhp&hl=zh-TW");
+					})
+				</script>
+			</div>
+
+
+			<div class="menu">
+				<ul>
+					<li>
+						<a href="https://webpacx.charlesc.idv.tw/" title="館藏查詢, 另開新視窗." target="_blank">館藏查詢</a>
+					</li>
+					<li>
+						<a href="np?ctNode=5221&mp=1" title="讀者服務">讀者服務</a>
+						<ul>
+							<li>
+								<a href="https://webpacx.charlesc.idv.tw/personal" title="個人書房">個人書房</a>
+							</li>
+							<li>
+								<a href="https://webpacx.charlesc.idv.tw/lendbook" title="行動借閱, 另開新視窗." target="_blank">行動借閱</a>
+							</li>
+							<li>
+								<a href="https://webpacx.charlesc.idv.tw/register" title="網路辦證, 另開新視窗." target="_blank">網路辦證</a>
+							</li>
+							<li>
+								<a href="https://webpacx.charlesc.idv.tw/faq" title="常見問答, 另開新視窗." target="_blank">常見問答</a>
+							</li>
+							<li>
+								<a href="https://webpacx.charlesc.idv.tw/libQA" title="讀者意見, 另開新視窗." target="_blank">讀者意見</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="np?ctNode=5222&mp=1" title="圖書館資訊">圖書館資訊</a>
+						<ul>
+							<li>
+								<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/Library.jsp&orgId=001&mp=1&idPath=4292_42&ctNode=5236" title="各館資訊">各館資訊</a>
+							</li>
+							<li>
+								<a href="np?ctNode=5237&mp=1&idPath=5217_5222_5237" title="開館時間">開館時間</a>
+							</li>
+							<li>
+								<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/chart.jsp&mp=1&ctNode=5238&deptId=&ctNode=5238" title="即時資訊">即時資訊</a>
+							</li>
+							<li>
+								<a href="lp?ctNode=6223&mp=1&idPath=5217_5222_6223" title="服務與閱覽說明">服務與閱覽說明</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="np?ctNode=5223&mp=1" title="訊息公告">訊息公告</a>
+						<ul>
+							<li>
+								<a href="lp?ctNode=5239&mp=1&idPath=5217_5223_5239" title="最新消息">最新消息</a>
+							</li>
+							<li>
+								<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&ctNode=5240&mp=1" title="活動查詢">活動查詢</a>
+							</li>
+							<li>
+								<a href="sp?xdUrl=/wSite/SPBlock/lost.jsp&mp=1&ctNode=5241" title="失物招領">失物招領</a>
+							</li>
+							<li>
+								<a href="np?ctNode=5242&mp=1&idPath=5217_5223_5242" title="政府公開資訊">政府公開資訊</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="np?ctNode=5224&mp=1" title="館藏資源">館藏資源</a>
+						<ul>
+							<li>
+								<a href="http://rrc.ncl.edu.tw/" title="分區資源中心, 另開新視窗." target="_blank">分區資源中心</a>
+							</li>
+							<li>
+								<a href="https://webpacx.charlesc.idv.tw/bookrecommend" title="圖書推薦, 另開新視窗." target="_blank">圖書推薦</a>
+							</li>
+							<li>
+								<a href="lp?ctNode=5247&mp=1&idPath=5217_5224_5247" title="電子資源">電子資源</a>
+							</li>
+							<li>
+								<a href="lp?ctNode=6224&mp=1&idPath=5217_5224_6224" title="外部資源">外部資源</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="np?ctNode=5225&mp=1" title="線上申辦">線上申辦</a>
+						<ul>
+							<li>
+								<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&mp=1&ctNode=5248" title="活動報名">活動報名</a>
+							</li>
+							<li>
+								<a href="sp?xdUrl=/wSite/SPBlock/visitForm.jsp&mp=1&ctNode=5249" title="導覽申請">導覽申請</a>
+							</li>
+							<li>
+								<a href="sp?xdUrl=/wSite/SPBlock/reserveForm.jsp&mp=1&ctNode=5250" title="場地預約">場地預約</a>
+							</li>
+							<li>
+								<a href="sp?xdUrl=/wSite/Survey/SurveyActiveList.jsp&mp=1&ctNode=5251" title="問卷調查, 另開新視窗." target="_blank">問卷調查</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<a onfocus="mlout();" href="javascript:"></a>
+			<noscript>TAB標籤功能，如不執行不影響您資料瀏覽</noscript>
+		</header>
+		<div id="center" class="main innerpage">
+			<a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+			<section class="col-12 full main_image">
+				<div class="container">
+					<div class="img-container">
+						<picture>
+							<source media="(min-width: 1200px)" srcset="images/top_bg.jpg"></source>
+							<source media="(min-width: 992px)" srcset="images/top_bg.jpg"></source>
+							<source media="(min-width: 576px)" srcset="images/top_bg.jpg"></source>
+							<source media="(max-width: 575px)" srcset="images/top_bg.jpg"></source>
+							<img data-src="images/top_bg.jpg" class="lazy loaded cover"><noscript>
+								<img src="images/top_bg.jpg"></noscript>
+							</picture>
+						</div>
+					</div>
+				</section>
+				<div class="container">
+					<div class="function_nav">
+						<div class="breadcrumb">
+							<span class="before">現在位置</span>：<a href="mp?mp=1" title="首頁">首頁</a>
+							>
+							<a href="np?ctNode=5222&mp=1" title="圖書館資訊">圖書館資訊</a>
+							>
+							<a href="np?ctNode=6223&mp=1" title="服務與閱覽說明">服務與閱覽說明</a>
+						</div>
+						<div class="function">
+							<ul>
+								<li>
+									<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+									<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+								</li>
+							</ul>
+						</div>
+					</div> 
+
+
+
+
+
+					<section class="cp">
+						<h2 class="title">
+							<span>服務與閱覽說明</span>
+						</h2>
+						<h3>設施服務收費標準</h3>
+						<div class="function_panel">
+							<ul>
+								<li>資料來源：<span>宜蘭縣公共圖書館</span>
+								</li>
+								<li>日期：<span>2020/11/19</span>
+								</li>
+							</ul>
+						</div>
+						<div class="table_list">
+							<table>
+								<thead>
+									<tr>
+										<th data-label="項目" scope="col">項目</th>
+										<th data-label="規格" scope="col">規格</th>
+										<th data-label="尺寸" scope="col">尺寸</th>
+										<th data-label="單位" scope="col">單位</th>
+										<th data-label="收費(元)" scope="col">收費(元)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td data-label="項目" scope="row">電腦列印</td>
+										<td data-label="規格">黑白</td>
+										<td data-label="尺寸">A4</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">2</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">電腦列印</td>
+										<td data-label="規格">黑白</td>
+										<td data-label="尺寸">A3</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">3</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">電腦列印</td>
+										<td data-label="規格">彩色</td>
+										<td data-label="尺寸">A4</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">5</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">電腦列印</td>
+										<td data-label="規格">彩色</td>
+										<td data-label="尺寸">A3</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">10</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">影印</td>
+										<td data-label="規格">黑白</td>
+										<td data-label="尺寸">A4</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">2</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">影印</td>
+										<td data-label="規格">黑白</td>
+										<td data-label="尺寸">A3</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">3</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">影印</td>
+										<td data-label="規格">彩色</td>
+										<td data-label="尺寸">A4</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">5</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">影印</td>
+										<td data-label="規格">彩色</td>
+										<td data-label="尺寸">A3</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">10</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">借書證遺失補發</td>
+										<td data-label="規格">-</td>
+										<td data-label="尺寸">-</td>
+										<td data-label="單位">張</td>
+										<td data-label="收費(元)">50</td>
+									</tr>
+									<tr>
+										<td data-label="項目" scope="row">代辦申請期刊論文費</td>
+										<td data-label="規格">-</td>
+										<td data-label="尺寸">-</td>
+										<td data-label="單位">份</td>
+										<td data-label="收費(元)">依被申請館收費標準</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<script type="text/javascript">
+			//window.addEvent('domready', function(){
+			//var tabpanel1 = new TabPanel("tabpanel_1");
+			//widgets.add(tabpanel1);
+			//});
+		</script>
+		<noscript>TAB標籤效果，如不執行不影響您資料瀏覽</noscript>
+	</section>
+</div>
+</div>
+<section class="fatfooter">
+	<div class="container">
+		<button type="button" name="收合" class="btn btn-fatfooter">CLOSE</button>
+		<nav>
+			<ul>
+				<li>
+					<a href="https://webpacx.charlesc.idv.tw/" title="館藏查詢, 另開新視窗." target="_blank">館藏查詢</a>
+				</li>
+				<li>
+					<a href="np?ctNode=5221&mp=1" title="讀者服務">讀者服務</a>
+					<ul>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/personal" title="個人書房">個人書房</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/lendbook" title="行動借閱, 另開新視窗." target="_blank">行動借閱</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/register" title="網路辦證, 另開新視窗." target="_blank">網路辦證</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/faq" title="常見問答, 另開新視窗." target="_blank">常見問答</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/libQA" title="讀者意見, 另開新視窗." target="_blank">讀者意見</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5222&mp=1" title="圖書館資訊">圖書館資訊</a>
+					<ul>
+						<li>
+							<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/Library.jsp&orgId=001&mp=1&idPath=4292_42&ctNode=5236" title="各館資訊">各館資訊</a>
+						</li>
+						<li>
+							<a href="np?ctNode=5237&mp=1&idPath=5217_5222_5237" title="開館時間">開館時間</a>
+						</li>
+						<li>
+							<a href="http://library.e-land.gov.tw/wSite/sp?xdUrl=/wSite/ApBlock/chart.jsp&mp=1&ctNode=5238&deptId=&ctNode=5238" title="即時資訊">即時資訊</a>
+						</li>
+						<li>
+							<a href="lp?ctNode=6223&mp=1&idPath=5217_5222_6223" title="服務與閱覽說明">服務與閱覽說明</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5223&mp=1" title="訊息公告">訊息公告</a>
+					<ul>
+						<li>
+							<a href="lp?ctNode=5239&mp=1&idPath=5217_5223_5239" title="最新消息">最新消息</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&ctNode=5240&mp=1" title="活動查詢">活動查詢</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/SPBlock/lost.jsp&mp=1&ctNode=5241" title="失物招領">失物招領</a>
+						</li>
+						<li>
+							<a href="np?ctNode=5242&mp=1&idPath=5217_5223_5242" title="政府公開資訊">政府公開資訊</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5224&mp=1" title="館藏資源">館藏資源</a>
+					<ul>
+						<li>
+							<a href="http://rrc.ncl.edu.tw/" title="分區資源中心, 另開新視窗." target="_blank">分區資源中心</a>
+						</li>
+						<li>
+							<a href="https://webpacx.charlesc.idv.tw/bookrecommend" title="圖書推薦, 另開新視窗." target="_blank">圖書推薦</a>
+						</li>
+						<li>
+							<a href="lp?ctNode=5247&mp=1&idPath=5217_5224_5247" title="電子資源">電子資源</a>
+						</li>
+						<li>
+							<a href="lp?ctNode=6224&mp=1&idPath=5217_5224_6224" title="外部資源">外部資源</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="np?ctNode=5225&mp=1" title="線上申辦">線上申辦</a>
+					<ul>
+						<li>
+							<a href="sp?xdUrl=/wSite/ActivitySign/ActivityList.jsp&mp=1&ctNode=5248" title="活動報名">活動報名</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/SPBlock/visitForm.jsp&mp=1&ctNode=5249" title="導覽申請">導覽申請</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/SPBlock/reserveForm.jsp&mp=1&ctNode=5250" title="場地預約">場地預約</a>
+						</li>
+						<li>
+							<a href="sp?xdUrl=/wSite/Survey/SurveyActiveList.jsp&mp=1&ctNode=5251" title="問卷調查, 另開新視窗." target="_blank">問卷調查</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</section>
+
+
+
+
+
+
+
+<!-- footer Start-->
+<footer>
+	<div class="container">
+		<a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁尾區">:::</a>
+		<div class="footer_info">
+			<p class="address">
+				26051 宜蘭縣宜蘭市復興路二段101號    電話：(03)9322440<br>
+				信箱：ilccbservice@mail.e-land.gov.tw
+				
+				<span class="update">更新日期：<em>2020/12/15</em></span><span class="counter">瀏覽人次：<em>250944</em></span>
+			</p>
+			<div class="footer_icon">
+				<ul>
+					<li>
+						<a target="_blank" href="https://www.facebook.com/elandccb" title="另開視窗">
+							<img src="images/f-icon-fb.png" alt="facebook">
+						</a>
+					</li>
+					<!-- li>
+						<a target="_blank" href="javascript:;" title="另開視窗">
+							<img src="images/f-icon-youtube.png" alt="youtube">
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="javascript:;" title="另開視窗">
+							<img src="images/f-icon-ig.png" alt="ig">
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="javascript:;" title="另開視窗">
+							<img src="images/basic/accessibility2.jpg" alt="">
+						</a>
+					</li -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 footer_bottom">
+		<div class="container">
+			<div class="footer_order">
+				<form id="emailForm" action="sp">
+					<div class="form_grp form_inline">
+						<label for="email"></label>
+						<input name="email" id="email" type="text" placeholder="請輸入EMAIL">
+						<button onClick="return checkEmail('O');">訂閱</button>
+					</div>
+					<input name="ctRootId" value="5" type="hidden" />
+					<input name="fstr" id="fstr" value="" type="hidden" />
+					<input name="xdUrl" value="/wSite/Epaper/EpaperOrder.jsp" type="hidden" />
+				</form>
+			</div>
+			<div class="container">
+				<ul class="footer_link">
+					<li><a href="ct?xItem=9934&ctNode=6220&mp=1" target="_blank" title="隱私權政策(另開視窗)">隱私權政策</a></li>
+					<li><a href="ct?xItem=9933&ctNode=6220&mp=1" target="_blank" title="網站安全政策(另開視窗)">網站安全政策</a></li>
+					<li><a href="ct?xItem=10030&ctNode=6220&mp=1" target="_blank" title="機關網站著作權聲明(另開視窗)">機關網站著作權聲明</a></li>
+				</ul>
+			</div>
+			<p class="copyright">Copyright 2020(C)宜蘭縣政府文化局 宜蘭縣圖書館All Rights Reserved.</p>
+		</div>
+	</div>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RD4DG73RF1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-RD4DG73RF1');
+</script>
+<!-- footer End -->
+<a href="javascript:;" class="scrollToTop">回頁首</a>
+<!-- JQ -->
+<script src="js/jquery-3.5.1.min.js"></script>
+<!-- 外掛 plugin js -->
+<script src="vendor/jquery.easing.min.js"></script><!-- ease -->
+<script src="vendor/slick/slick.js "></script><!-- slick -->
+<script src="vendor/slick/slick-lightbox.js "></script><!-- slick lightbox -->
+<script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
+<script src="vendor/picturefill/picturefill.min.js" async></script><!-- picturefill -->
+<script src="vendor/scrolltable/jquery.scroltable.min.js"></script>
+<script src="vendor/pg_calendar/js/pignose.calendar.full.js"></script>
+<!-- hyUI -->
+<script src="js/hyui.js"></script>
+<!-- 客製js -->
+<script src="js/customize.js"></script>
+<!-- WOW -->
+<script src="vendor/wow/wow.min.js"></script>
+<script>
+// new WOW().init();
+wow = new WOW(
+{
+		boxClass:     'wow',      // default
+		animateClass: 'animated', // default
+		offset:       0,          // default
+		mobile:       false,       // default
+		live:         true        // default
+	}
+	)
+wow.init();
+
+function checkEmail(str){ 
+	$("#fstr").val(str);
+	$("#emailForm").submit();
+	return true; 
+}
+</script></div>
+<script type="text/javascript"></script>
+<noscript>TAB標籤效果，如不執行不影響您資料瀏覽</noscript>
+</body>
+</html>
