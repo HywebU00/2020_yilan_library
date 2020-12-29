@@ -212,9 +212,9 @@
 .category_search_2{
     margin: 0 .5em;
     ul{
-       @include li-reset; 
-   }
-   li{
+     @include li-reset; 
+ }
+ li{
     display: inline-block;
     margin-bottom: .5em;
     a{
@@ -248,18 +248,14 @@
         height: 200px;
         background: url('../images/bg07.png') no-repeat center center;
         background-size:contain;
+        z-index: -1;
     }
     @include screen('tablet') {
         &:before{
-            content:"";
-            position: absolute;
-            display: block;
-            right: 0;
+            right: 50px;
             top:0px;
-            width:48%;
+            width:35%;
             height: 200px;
-            background: url('../images/bg07.png') no-repeat center center;
-            background-size:contain;
         }
     }
     @include screen('mobile') {
@@ -272,19 +268,23 @@
 .select_library{
     font-weight: bold;
     margin-top: 2em;
-    @include screen('mobile') {
-        position: static;
-    }
-    select{
-        background-color: #fff;
-        border:0;
-        box-shadow: 0 2px 5px  rgba(0, 0, 0, .3);
-    }
+    @include screen('tablet') {
+       margin-top: .5em; 
+   }
+   @include screen('mobile') {
+    position: static;
+}
+select{
+    background-color: #fff;
+    border:0;
+    box-shadow: 0 2px 5px  rgba(0, 0, 0, .3);
+}
 }
 //最新消息
 .news{
     position: relative;
     margin-top: 3em;
+
     @include screen('mobile') {
         margin-top: 1em;
     }
@@ -293,8 +293,11 @@
         width: 42px;
         height: 42px;
         position: absolute;
-        top:140px;
+        top:130px;
         right:10px;
+        @include screen('tablet') {
+            top:103px; 
+        }
         @include screen('mobile') {
             top:30px;
             right:0px; 
@@ -928,11 +931,11 @@
                 background: url('../images/h2_bg4.png')no-repeat -80px center;
             }
             &:after{
-               background: url('../images/h2_bg5.png')no-repeat right -80px center; 
-           }
-       }
-   }
-   .library_select{
+             background: url('../images/h2_bg5.png')no-repeat right -80px center; 
+         }
+     }
+ }
+ .library_select{
     margin: 1em 0 1em;
     @include screen('mobile') {
         display: none;
@@ -951,10 +954,10 @@
             }
         }
         @include screen('mobile') {
-         padding-left: 0; 
-     }
- }
- .tabContent{
+           padding-left: 0; 
+       }
+   }
+   .tabContent{
     width: 250px;
     clear: none;
     padding: 0;
