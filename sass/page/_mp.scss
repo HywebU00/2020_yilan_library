@@ -814,6 +814,13 @@ select{
             background: $primaryColor;
         }
     }
+    .pignose-calendar-unit-active a {
+      background-color: #008385;
+      color: #ffffff;
+      font-weight: 600;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
 }
 
 
@@ -1177,7 +1184,7 @@ select{
                 content:'';
                 width: 8px;
                 height: 8px;
-                background: #000;
+                background: #008385;
                 border-radius: 50%;
                 position: absolute;
                 top:.6em;

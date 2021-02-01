@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>宜蘭縣公共圖書館</title>
+    <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries [if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+<![endif]-->
+<!-- slick css-->
+<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css" />
+<!--pignose-->
+<link rel="stylesheet" href="vendor/pg_calendar/css/pignose.calendar.min.css">
+<!-- hyUI css -->
+<link rel="stylesheet" href="vendor/animate.css">
+<link rel="stylesheet" href="css/hyui.css">
+</head>
+
+<body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#center" tabindex="1">按Enter到主內容區</a>
+    <!-- wrapper Start -->
+    <div class="wrapper">
+        <!-- header Start -->
+        <header class="header">
+            <div class="container">
+                <a class="accesskey" href="#aU" id="aU" accesskey="U" title="網站標題" tabindex="2">:::</a>
+                <div class="nav_block">
+                    <!-- navigation Start -->
+                    <nav class="navigation">
+                        <ul>
+                            <li><a href="#">網站導覽</a></li>
+                            <!-- <li><a href="#">回首頁</a></li> -->
+                        </ul>
+                    </nav>
+                    <button class="search_btn">全站檢索</button>
+                    <!-- 未登入狀態的登入btn -->
+                    <!-- <button class="login_btn" style="display: none">讀者登入</button> -->
+                    <!-- 已登入狀態顯示讀者姓名 -->
+                    <div class="loggedin">張家祥</div>
+                </div>
+                <!--未登入狀態-->
+                <div class="reader_login" style="display: none">
+                    <form action="">
+                        <div class="form_inline">
+                            <button type="button" class="close">關閉</button>
+                            <div class="form_grp">
+                                <label for="username">帳號：</label>
+                                <input name="username" type="text" placeholder="請輸入帳號">
+                            </div>
+                            <div class="form_grp">
+                                <label for="password">密碼：</label>
+                                <input name="password" type="password" placeholder="請輸入密碼">
+                            </div>
+                            <div class="check_grp">
+                                <label><input type="checkbox">記住帳號</label>
+                            </div>
+                            <div class="btn_grp">
+                                <buttom type="button" class="logout">登入</buttom>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--讀者已登入狀態-->
+                <div class="reader_area">
+                    <form  id="memberlogin"  action="" method="post"  class="form_inline">
+                        <p class="reader">
+                            歡迎，<span class="reader_name">凌網測試讀者</span>
+                        </p>
+                        <ul>
+                            <li class="reader_borrow">借閱中<span>0</span></li>
+                            <li class="reader_overdue">逾期未歸<span>0</span></li>
+                            <li class="reader_violation">違規天數<span>0</span></li>
+                            <li class="reader_booked">預約<span>0</span></li>
+                            <li class="reader_arrival">已到館<span>0</span></li>
+                        </ul>
+                        <div class="btn_grp">
+                            <button class="my_study"  onclick="member()" >個人書房</button>
+                            <a class="logout" id="btn_logout"  title="登出"   href="sp?xdUrl=/wSite/MemberManager/SSOLogout.jsp&mp=1">登出</a>
+                        </div>
+                        
+                        <script>
+                            $("#loggedin").html("凌網測試讀者");
+                            $("#login_btn").hide();
+                            $("#loggedin").show(); 
+                            function member() {
+                                window.open('MemberManager/webpacxForward.jsp');
+                        //window.open('MemberManager/hylibForward.jsp?rdurl=personalization/personal.jsp');
+                    }
+                </script>
+            </form>
+        </div>
+
+        <!-- Search Start -->
+        <div class="search">
+            <form action="">
+                <button type="button" class="close">關閉</button>
+                <div class="form form_inline">
+                    <select name="" id="selectSample">
+                        <option value="" aria-labelledby="館藏查詢">館藏查詢</option>
+                        <option value="" aria-labelledby="選項二">選項二</option>
+                        <option value="" aria-labelledby="選項三">選項三</option>
+                    </select>
+                    <div class="form_grp">
+                        <label for="mustSameAsId">搜尋</label>
+                        <input name="username" id="mustSameAsId" type="text" placeholder="請輸入文字" accesskey="S">
+                        <input name="" type="submit" title="查詢" value="查詢">
+                    </div>
+                    <div class="btn_grp">
+                        <input name="" type="submit" value="進階搜尋">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- language -->
+<!--                 <div class="language">
+                    <a href="#">語言選擇</a>
+                    <ul style="display: none;">
+                        <li><a href="#">繁體中文</a></li>
+                        <li><a href="#">简体中文</a></li>
+                        <li><a href="#">ENGLISH</a></li>
+                    </ul>
+                </div> -->
+                <!-- font_size -->
+                <div class="font_size">
+                    <span>字型大小：</span>
+                    <!-- 英文用<span>font-size：</span> -->
+                    <ul>
+                        <li><a href="#" class="small">小</a></li>
+                        <li><a href="#" class="medium active">中</a></li>
+                        <li><a href="#" class="large">大</a></li>
+                    </ul>
+                </div>
+
+
+                <h1>
+                    <a href="index.html"><img src="images/logo.png" alt="宜蘭縣公共圖書館" /></a>
+                </h1>
+                <!-- noscript -->
+                <noscript> 您的瀏覽器不支援JavaScript語法，JavaScript語法並不影響內容的陳述。您可使用按鍵盤上的Ctrl鍵+ (+)鍵放大/(-)鍵縮小來改變字型大小；回到上一頁可使用瀏覽器提供的 Alt+左方向鍵(←) 快速鍵功能；列印可使用瀏覽器提供的(Ctrl+P)功能。您的瀏覽器，不支援script語法，若您的瀏覽器無法支援請點選此超連結 <a href="#">網站導覽</a>
+                </noscript>
+                <!-- menu Start -->
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">館藏查詢</a></li>
+                        <li><a href="#">讀者服務</a>
+                            <ul>
+                                <li><a href="#">開館時間</a></li>
+                                <li><a href="#">圖書推薦</a></li>
+                                <li><a href="#">圖書館相關規定</a></li>
+                                <li><a href="#">場地預約</a></li>
+                                <li><a href="#">座位預約</a></li>
+                                <li><a href="#">導覽申請</a></li>
+                                <li><a href="#">線上問卷</a></li>
+                                <li><a href="#">活動報名</a></li>
+                                <li><a href="#">失物招領</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">圖書館資訊</a>
+                            <ul>
+                                <li><a href="#">局長的話</a></li>
+                                <li><a href="#">館舍介紹</a></li>
+                                <li><a href="#">宜蘭分區資源中心</a></li>
+                                <li><a href="#">鄉鎮圖書館</a></li>
+                                <li><a href="#">各科職掌</a></li>
+                                <li><a href="#">行事曆</a></li>
+                                <li><a href="#">宜蘭演藝廳</a></li>
+                                <li><a href="#">台灣戲劇館</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">訊息公告</a>
+                            <ul>
+                                <li><a href="#">最新消息</a></li>
+                                <li><a href="#">活動報名</a></li>
+                                <li><a href="#">活動花絮</a></li>
+                                <li><a href="#">政令宣導</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">館藏資源</a>
+                            <ul>
+                                <li><a href="#">分區資源中心</a></li>
+                                <li><a href="#">圖書推薦</a></li>
+                                <li><a href="#">電子資源</a></li>
+                                <li><a href="#">外部資源</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">線上申辦</a>
+                            <ul>
+                                <li><a href="#">活動報名</a></li>
+                                <li><a href="#">導覽申請</a></li>
+                                <li><a href="#">場地預約</a></li>
+                                <li><a href="#">問卷調查</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- menu End -->
+            </div>
+        </header>
+        <!-- header End -->
+        <!-- main Start -->
+        <div id="center" class="main mp">
+            <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+            <section class="col-12 full main_image">
+                <div class="container">
+                    <div class="mpSlider">
+                        <div class="img-container">
+                            <a href="#" title="">
+                                <picture>
+                                    <source media="(min-width: 1200px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+                                    <source media="(min-width: 992px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+                                    <source media="(min-width: 576px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+                                    <source media="(max-width: 575px)" data-lazy-srcset="images/main_banner01.jpg"></source>
+                                    <img data-lazy="images/main_banner01.jpg" alt="banner2" class="cover">
+                                    <noscript><img src="images/main_banner01.jpg"></noscript>
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="img-container">
+                            <a href="#" title="">
+                                <picture>
+                                    <source media="(min-width: 1200px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+                                    <source media="(min-width: 992px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+                                    <source media="(min-width: 576px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+                                    <source media="(max-width: 575px)" data-lazy-srcset="images/main_banner02.jpg"></source>
+                                    <img data-lazy="images/main_banner02.jpg" alt="banner2" class="cover">
+                                    <noscript><img src="images/main_banner02.jpg"></noscript>
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="img-container">
+                            <a href="#" title="">
+                                <picture>
+                                    <source media="(min-width: 1200px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+                                    <source media="(min-width: 992px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+                                    <source media="(min-width: 576px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+                                    <source media="(max-width: 575px)" data-lazy-srcset="images/main_banner03.jpg"></source>
+                                    <img data-lazy="images/main_banner03.jpg" alt="banner3" class="cover">
+                                    <noscript><img src="images/main_banner03.jpg"></noscript>
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--  兩欄樣式 -->
+            <section class="col-4-8">
+                <div class="container w_1000">
+
+                    <div class="col wow fadeInLeft" data-wow-duration=".8s" data-wow-delay="0">
+                        <!--bookslider2 star-->
+                        <div class="bookSlider2">
+                            <div class="book_wrap">
+                                <a href="#">
+                                    <div class="img-container">
+                                        <img src="images/act01.jpg" alt="圖片說明">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="book_wrap">
+                                <a href="#">
+                                    <div class="img-container">
+                                        <img src="images/act02.jpg" alt="圖片說明">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--bookslider2 End-->
+
+                    </div>
+                    <div class="col wow fadeInRight" data-wow-duration=".8s" data-wow-delay="0s">
+                        <div class="news">
+                            <h2>最新消息</h2>
+                            <form action="">
+                                <div class="form_grp form_inline select_library">
+                                    <label for="selectSample">請選擇館別：</label>
+                                    <div class="rss"><a href="#"><img src="images/rss.png" alt="rss"></a></div>
+                                    <select name="" id="selectSample">
+                                        <option value="">全部</option>
+                                        <option value="">宜蘭縣文化局</option>
+                                        <option value="">羅東鎮立圖書館</option>
+                                        <option value="">宜蘭市立圖書館</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <div class="tabSet">
+                                <section class="tabs example-1">
+                                    <h3 class="tabItem active"><a href="#">全部</a></h3>
+                                    <!--選到的頁籤項目-->
+                                    <div class="tabContent">
+                                        <ul>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣公共圖書館</span>
+                                                <time>2020/09/21</time>
+                                                <a href="#">國立臺灣圖書館將於本（109）年10月辦理「從吳鶴記文書國立臺灣圖書館將於本（109）年10月辦理「從吳鶴記文書</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020/09/18</time>
+                                                <a href="#">109雲林分區資源中心中文書上架了!(附上交書清單供參考)</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">台灣戲劇館</span>
+                                                <time>2020/09/13</time>
+                                                <a href="#">國立臺灣藝術教育館「網路藝學園課程暨APP行銷活動」</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020/09/06</time>
+                                                <a href="#">國家圖書館辦理「秋意濃濃‧學習正紅-109年度國家圖書館...</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020/09/01</time>
+                                                <a href="#">國立臺灣圖書館為推廣數位閱讀風氣，推動「喜迎九月開學...</a>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="more">更多最新消息</a>
+                                    </div>
+                                    <h3 class="tabItem"><a href="#">活動花絮</a></h3>
+                                    <div class="tabContent">
+                                        <ul>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020-07-01</time>
+                                                <a href="#">第二則消息</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020-06-30</time>
+                                                <a href="#">【轉知】中華民國圖書館學會109年度「圖書館創意行銷及品牌營造」研習班，歡迎踴躍參加</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020-06-30</time>
+                                                <a href="#">【轉知】新北市立圖書館7月份「新北講堂」及「新書分享會」,歡迎參加。</a>
+                                            </li>
+                                            <li>
+                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                <time>2020-06-30</time>
+                                                <a href="#">【轉知】國家圖書館辦理「盛夏 時分‧學習滿分-109年度夏季數位學習推廣活動」</a></li>
+                                                <li>
+                                                    <span class="location_tag">宜蘭縣文化局</span>
+                                                    <time>2020-06-30</time>
+                                                    <a href="#">【轉知】成功大學 X Emerald Open Access 會談」線上講座，請踴躍參加。</a>
+                                                </li>
+                                            </ul>
+                                            <a href="#" class="more">更多消息</a>
+                                        </div>
+                                        <h3 class="tabItem"><a href="#">最新消息</a></h3>
+                                        <div class="tabContent">
+                                            <ul>
+                                                <li>
+                                                    <span class="location_tag">宜蘭縣文化局</span>
+                                                    <time>2020-07-01</time>
+                                                    <a href="#">第三則消息</a>
+                                                </li>
+                                                <li>
+                                                    <span class="location_tag">宜蘭縣文化局</span>
+                                                    <time>2020-06-30</time>
+                                                    <a href="#">【轉知】中華民國圖書館學會109年度「圖書館創意行銷及品牌營造」研習班，歡迎踴躍參加</a>
+                                                </li>
+                                                <li>
+                                                    <span class="location_tag">宜蘭縣文化局</span>
+                                                    <time>2020-06-30</time>
+                                                    <a href="#">【轉知】新北市立圖書館7月份「新北講堂」及「新書分享會」,歡迎參加。</a>
+                                                </li>
+                                                <li>
+                                                    <span class="location_tag">宜蘭縣文化局</span>
+                                                    <time>2020-06-30</time>
+                                                    <a href="#">【轉知】國家圖書館辦理「盛夏 時分‧學習滿分-109年度夏季數位學習推廣活動」</a></li>
+                                                    <li>
+                                                        <span class="location_tag">宜蘭縣文化局</span>
+                                                        <time>2020-06-30</time>
+                                                        <a href="#">【轉知】成功大學 X Emerald Open Access 會談」線上講座，請踴躍參加。</a>
+                                                    </li>
+                                                </ul>
+                                                <a href="#" class="more">更多消息</a>
+                                            </div>
+                                            <h3 class="tabItem"><a href="#">活動查詢</a></h3>
+                                            <div class="tabContent">
+                                                <ul>
+                                                    <li>
+                                                        <span class="location_tag">宜蘭縣文化局</span>
+                                                        <time>2020-07-01</time>
+                                                        <a href="#">第四則消息</a>
+                                                    </li>
+                                                    <li>
+                                                        <span class="location_tag">宜蘭縣文化局</span>
+                                                        <time>2020-06-30</time>
+                                                        <a href="#">【轉知】中華民國圖書館學會109年度「圖書館創意行銷及品牌營造」研習班，歡迎踴躍參加</a>
+                                                    </li>
+                                                    <li>
+                                                        <span class="location_tag">宜蘭縣文化局</span>
+                                                        <time>2020-06-30</time>
+                                                        <a href="#">【轉知】新北市立圖書館7月份「新北講堂」及「新書分享會」,歡迎參加。</a>
+                                                    </li>
+                                                    <li>
+                                                        <span class="location_tag">宜蘭縣文化局</span>
+                                                        <time>2020-06-30</time>
+                                                        <a href="#">【轉知】國家圖書館辦理「盛夏 時分‧學習滿分-109年度夏季數位學習推廣活動」</a></li>
+                                                        <li>
+                                                            <span class="location_tag">宜蘭縣文化局</span>
+                                                            <time>2020-06-30</time>
+                                                            <a href="#">【轉知】成功大學 X Emerald Open Access 會談」線上講座，請踴躍參加。</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="#" class="more">更多消息</a>
+                                                </div>
+                                                <h3 class="tabItem"><a href="#">政令宣導</a></h3>
+                                                <div class="tabContent">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="location_tag">宜蘭縣文化局</span>
+                                                            <time>2020-07-01</time>
+                                                            <a href="#">第五則消息</a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="location_tag">宜蘭縣文化局</span>
+                                                            <time>2020-06-30</time>
+                                                            <a href="#">【轉知】中華民國圖書館學會109年度「圖書館創意行銷及品牌營造」研習班，歡迎踴躍參加</a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="location_tag">宜蘭縣文化局</span>
+                                                            <time>2020-06-30</time>
+                                                            <a href="#">【轉知】新北市立圖書館7月份「新北講堂」及「新書分享會」,歡迎參加。</a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="location_tag">宜蘭縣文化局</span>
+                                                            <time>2020-06-30</time>
+                                                            <a href="#">【轉知】國家圖書館辦理「盛夏 時分‧學習滿分-109年度夏季數位學習推廣活動」</a></li>
+                                                            <li>
+                                                                <span class="location_tag">宜蘭縣文化局</span>
+                                                                <time>2020-06-30</time>
+                                                                <a href="#">【轉知】成功大學 X Emerald Open Access 會談」線上講座，請踴躍參加。</a>
+                                                            </li>
+                                                        </ul>
+                                                        <a href="#" class="more">更多消息</a>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+
+                            <section class="col-12">
+                                <div class="container">
+                                    <div class="hot_service  w_1000">
+                                        <div class="leftblock wow fadeInLeft"  data-wow-duration=".5s">
+                                            <h2 class="wow fadeInDown" data-wow-duration=".8s">熱門服務</h2>
+                                            <img src="images/hot_service_bg.png" alt=""></div>
+                                            <div class="rightblock  wow fadeInRight"  data-wow-duration=".8s">
+                                                <ul>
+                                                    <li><a href="#"><img src="images/hot_s01.png" alt="館藏查詢"></a>
+                                                    </li>
+                                                    <li><a href="#"><img src="images/hot_s02.png" alt="借閱查詢"></a>
+                                                    </li>
+                                                    <li><a href="#"><img src="images/hot_s03.png" alt="線上申辦"></a>
+                                                    </li>
+                                                    <li><a href="#"><img src="images/hot_s04.png" alt="行動借閱"></a>
+                                                    </li>
+                                                    <li><a href="#"><img src="images/hot_s05.png" alt="電子資源"></a>
+                                                    </li>
+                                                    <li><a href="#"><img src="images/hot_s06.png" alt="常見問題"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="col-12">
+                                    <div class="container">
+                                        <div class="book_display  w_1000">
+                                            <h2 class="wow fadeInDown" data-wow-duration=".8s">新書展示</h2>
+                                            <div class="bookSlider">
+                                                <div class="book_wrap">
+                                                    <a href="#">
+                                                        <div class="img-container">
+                                                            <img src="images/book_05.jpg">
+                                                        </div>
+                                                        <div class="book_name">1</div>
+                                                    </a>
+                                                </div>
+                                                <div class="book_wrap">
+                                                    <a href="#">
+                                                        <div class="img-container">
+                                                            <img src="images/book_06.jpg">
+                                                        </div>
+                                                        <div class="book_name">神來的時候</div>
+                                                    </a>
+                                                </div>
+                                                <div class="book_wrap">
+                                                    <a href="#">
+                                                        <div class="img-container">
+                                                            <img src="images/book_07.jpg">
+                                                        </div>
+                                                        <div class="book_name">搶救大灰鯨--看因紐特人如何幫動物朋友脫困</div>
+                                                    </a>
+                                                </div>
+                                                <div class="book_wrap">
+                                                    <a href="#">
+                                                        <div class="img-container">
+                                                            <img src="images/book_08.jpg">
+                                                        </div>
+                                                        <div class="book_name">高手的養成--股市新手必須知道的3個祕密</div>
+                                                    </a>
+                                                </div>
+                                                <div class="book_wrap">
+                                                    <a href="#">
+                                                        <div class="img-container">
+                                                            <img src="images/book_01.jpg">
+                                                        </div>
+                                                        <div class="book_name">10個月從五十音直接通過日檢1級 :裘莉的日語神器</div>
+                                                    </a>
+                                                </div>
+                                                <div class="book_wrap">
+                                                    <a href="#">
+                                                        <div class="img-container">
+                                                            <img src="images/book_02.jpg">
+                                                        </div>
+                                                        <div class="book_name">10層樓的樟樹公寓</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!--bookslider End-->
+                                            <a href="#" class="more">更多新書</a>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="col-12 library_info">
+                                    <div class="container">
+                                        <h2 class="wow fadeInDown" data-wow-duration=".8s">各館資訊</h2>
+                                        <!--  library_select star  -->
+                                        <div class="library_select">
+                                            <div class="tabSet">
+                                                <section class="tabs cisinfo">
+                                                    <h3 class="tabItem active"><a href="#">宜蘭縣文化局</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo.png" alt="宜蘭縣文化局">
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="tabItem"><a href="#">羅東鎮立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo2.png" alt="羅東鎮立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">宜蘭市立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo3.png" alt="宜蘭市立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">蘇澳鎮立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo4.png" alt="蘇澳鎮立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">頭城鎮立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo5.png" alt="頭城鎮立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">礁溪鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo6.png" alt="礁溪鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">壯圍鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo7.png" alt="壯圍鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">員山鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo8.png" alt="員山鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">冬山鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo9.png" alt="冬山鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">五結鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo10.png" alt="五結鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">三星鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo11.png" alt="三星鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">大同鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo12.png" alt="大同鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                    <h3 class="tabItem"><a href="#">南澳鄉立圖書館</a></h3>
+                                                    <!--選到的頁籤項目-->
+                                                    <div class="tabContent">
+                                                        <div class="cis">
+                                                            <img src="images/f-logo13.png" alt="南澳鄉立圖書館">
+                                                        </div>
+                                                    </div>
+
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <!--  library_select end  -->
+                                        <!-- 各館資訊 -->
+                                        <!-- 手機版選單 -->
+                                        <div class="form_grp mobile_select">
+                                            <select name="" id="selectSample">
+                                                <option value="">宜蘭縣文化局</option>
+                                                <option value="">羅東鎮立圖書館</option>
+                                                <option value="">宜蘭市立圖書館</option>
+                                                <option value="">蘇澳鎮立圖書館</option>
+                                                <option value="">頭城鎮立圖書館</option>
+                                                <option value="">礁溪鄉立圖書館</option>
+                                                <option value="">壯圍鄉立圖書館</option>
+                                                <option value="">員山鄉立圖書館</option>
+                                                <option value="">冬山鄉立圖書館</option>
+                                                <option value="">五結鄉立圖書館</option>
+                                                <option value="">三星鄉立圖書館</option>
+                                                <option value="">大同鄉立圖書館</option>
+                                                <option value="">南澳鄉立圖書館</option>
+                                            </select>
+                                            <div class="library_name"><a href="#">宜蘭縣文化局</a></div>
+                                        </div>
+                                        <div class="info_content">
+                                            <div class="info_list wow fadeIn" data-wow-duration=".3s">
+                                                <div class="col">
+                                                    <ul>
+                                                        <li class="info_address">26051 宜蘭縣宜蘭市復興路二段101號</li>
+                                                        <li class="info_phone">(03)9322440</li>
+                                                        <li class="info_opening">
+                                                            <span class="title">開館時間</span>
+                                                            圖書館 : 週二至週日8:30-20:00<br>
+                                                            兒童室 : 週二至週日8:30-20:00<br>
+                                                            青年閱覽室 : 週一8:00-17:00<br>  週二至週日8:00-20:00<br>
+                                                        </li>
+                                                        <li class="info_closing">
+                                                            <span class="title">休館日</span>
+                                                            週一/民俗節日/國定假日/每月最後一日
+                                                        </li>
+                                                    </ul> 
+                                                </div>
+                                                <div class="col">
+                                                    <ul>
+                                                        <li class="info_email"><a href="mailto:ilccbservice@mail.e-land.gov.tw">ilccbservice@mail.e-land.gov.tw</a></li>
+                                                        <li class="info_fb"><a href="https://www.facebook.com/elandccb/" target="_blank">宜蘭縣政府文化局</a></li>
+                                                    </ul>
+                                                    <div class="more"><a href="#">更多資訊</a></div>
+                                                </div>
+                                                <!-- <div class="col">
+                                                    <div class="calendar">
+
+                                                    </div>
+                                                    <div class="remark">
+                                                        <ul>
+                                                            <li class="close-day">休館日</li>
+                                                            <li class="act-day">活動日</li>
+                                                        </ul>
+                                                    </div>
+                                                </div> -->
+
+                                                <!-- calendar test -->
+                                                <div class="col">
+                                                    <div class="calendar"><div class="pignose-calendar pignose-calendar-light pignose-calendar-default">                                    <div class="pignose-calendar-top">                                      <a href="#" class="pignose-calendar-top-nav pignose-calendar-top-prev">                                          <span class="icon-arrow-left pignose-calendar-top-icon"></span>                                      </a>                                      <div class="pignose-calendar-top-date">                                          <span class="pignose-calendar-top-month">二月</span>                                          <span class="pignose-calendar-top-year">2021</span>                                      </div>                                      <a href="#" class="pignose-calendar-top-nav pignose-calendar-top-next">                                          <span class="icon-arrow-right pignose-calendar-top-icon"></span>                                      </a>                                    </div>                                    <div class="pignose-calendar-header"><div class="pignose-calendar-week pignose-calendar-week-sun">日</div><div class="pignose-calendar-week pignose-calendar-week-mon">一</div><div class="pignose-calendar-week pignose-calendar-week-tue">二</div><div class="pignose-calendar-week pignose-calendar-week-wed">三</div><div class="pignose-calendar-week pignose-calendar-week-thu">四</div><div class="pignose-calendar-week pignose-calendar-week-fri">五</div><div class="pignose-calendar-week pignose-calendar-week-sat">六</div></div>                                    <div class="pignose-calendar-body"><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-sun"></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-01"><a href="#">1</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue
+                                                    pignose-calendar-unit-active
+                                                    event 
+                                                    pignose-calendar-unit-toggle-inactive" data-date="2021-02-02"><a href="#">2</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed pignose-calendar-unit-toggle-inactive" data-date="2021-02-03"><a href="#">3</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu pignose-calendar-unit-toggle-inactive" data-date="2021-02-04"><a href="#">4</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri pignose-calendar-unit-toggle-inactive" data-date="2021-02-05"><a href="#">5</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat pignose-calendar-unit-toggle-inactive" data-date="2021-02-06"><a href="#">6</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun pignose-calendar-unit-toggle-inactive" data-date="2021-02-07"><a href="#">7</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-08"><a href="#">8</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue pignose-calendar-unit-toggle-inactive" data-date="2021-02-09"><a href="#">9</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed pignose-calendar-unit-toggle-inactive" data-date="2021-02-10"><a href="#">10</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-11"><a href="#">11</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-12"><a href="#">12</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-13"><a href="#">13</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-14"><a href="#">14</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-15"><a href="#">15</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-16"><a href="#">16</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed pignose-calendar-unit-toggle-inactive" data-date="2021-02-17"><a href="#">17</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu pignose-calendar-unit-toggle-inactive" data-date="2021-02-18"><a href="#">18</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri pignose-calendar-unit-toggle-inactive" data-date="2021-02-19"><a href="#">19</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat pignose-calendar-unit-toggle-inactive" data-date="2021-02-20"><a href="#">20</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun pignose-calendar-unit-toggle-inactive" data-date="2021-02-21"><a href="#">21</a><div class="pignose-calendar-button-schedule-container"><span class="pignose-calendar-button-schedule-pin pignose-calendar-button-schedule-pin-event" style="background-color: #5c6270;"></span></div></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-22"><a href="#">22</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue pignose-calendar-unit-toggle-inactive" data-date="2021-02-23"><a href="#">23</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed pignose-calendar-unit-toggle-inactive" data-date="2021-02-24"><a href="#">24</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu pignose-calendar-unit-toggle-inactive" data-date="2021-02-25"><a href="#">25</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri pignose-calendar-unit-toggle-inactive" data-date="2021-02-26"><a href="#">26</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat pignose-calendar-unit-toggle-inactive" data-date="2021-02-27"><a href="#">27</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun pignose-calendar-unit-disabled pignose-calendar-unit-toggle-inactive" data-date="2021-02-28"><a href="#">28</a></div><div class="pignose-calendar-unit pignose-calendar-unit-mon"></div><div class="pignose-calendar-unit pignose-calendar-unit-tue"></div><div class="pignose-calendar-unit pignose-calendar-unit-wed"></div><div class="pignose-calendar-unit pignose-calendar-unit-thu"></div><div class="pignose-calendar-unit pignose-calendar-unit-fri"></div><div class="pignose-calendar-unit pignose-calendar-unit-sat"></div></div></div>                                  </div></div>
+                                                    <div class="remark">
+                                                        <ul>
+                                                            <li class="close-day">休館日</li>
+                                                            <li class="act-day">活動日</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- calendar test end-->
+
+
+                                            </div>
+                                        </div>   
+                                    </div>
+
+                                </section>
+
+                            </div>
+                            <!-- fatfooter Start -->
+                            <section class="fatfooter">
+                                <div class="container">
+                                    <button type="button" name="收合" class="btn btn-fatfooter">CLOSE</button>
+                                    <nav>
+                                        <ul>
+                                            <li><a href="#">館藏查詢</a></li>
+                                            <li><a href="#">讀者服務</a>
+                                                <ul>
+                                                    <li><a href="#">開館時間</a></li>
+                                                    <li><a href="#">圖書推薦</a></li>
+                                                    <li><a href="#">圖書館相關規定</a></li>
+                                                    <li><a href="#">場地預約</a></li>
+                                                    <li><a href="#">座位預約</a></li>
+                                                    <li><a href="#">導覽申請</a></li>
+                                                    <li><a href="#">線上問卷</a></li>
+                                                    <li><a href="#">活動報名</a></li>
+                                                    <li><a href="#">失物招領</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">圖書館資訊</a>
+                                                <ul>
+                                                    <li><a href="#">局長的話</a></li>
+                                                    <li><a href="#">館舍介紹</a></li>
+                                                    <li><a href="#">宜蘭分區資源中心</a></li>
+                                                    <li><a href="#">鄉鎮圖書館</a></li>
+                                                    <li><a href="#">各科職掌</a></li>
+                                                    <li><a href="#">行事曆</a></li>
+                                                    <li><a href="#">宜蘭演藝廳</a></li>
+                                                    <li><a href="#">台灣戲劇館</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">訊息公告</a>
+                                                <ul>
+                                                    <li><a href="#">最新消息</a></li>
+                                                    <li><a href="#">活動報名</a></li>
+                                                    <li><a href="#">活動花絮</a></li>
+                                                    <li><a href="#">政令宣導</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="#">館藏資源</a>
+                                                <ul>
+                                                    <li><a href="#">分區資源中心</a></li>
+                                                    <li><a href="#">圖書推薦</a></li>
+                                                    <li><a href="#">電子資源</a></li>
+                                                    <li><a href="#">外部資源</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">線上申辦</a>
+                                                <ul>
+                                                    <li><a href="#">活動報名</a></li>
+                                                    <li><a href="#">導覽申請</a></li>
+                                                    <li><a href="#">場地預約</a></li>
+                                                    <li><a href="#">問卷調查</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </section>
+                            <!-- fatfooter End -->
+                            <!-- footer Start-->
+                            <footer>
+                                <div class="container">
+                                    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁尾區">:::</a>
+                                    <div class="footer_info">
+                                        <p class="address">
+                                            26051 宜蘭縣宜蘭市復興路二段101號    電話：(03)9322440<br>
+                                            信箱：ilccbservice@mail.e-land.gov.tw   <span class="update">更新日期：<em>2020/07/20</em></span><span class="counter">瀏覽人次：<em>2,687,073</em></span>
+                                        </p>
+                                        <div class="footer_icon">
+                                            <ul>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/f-icon-fb.png" alt="facebook">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/f-icon-youtube.png" alt="youtube">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/f-icon-ig.png" alt="ig">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" href="javascript:;" title="另開視窗">
+                                                        <img src="images/basic/accessibility2.jpg" alt="">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 footer_bottom">
+                                    <div class="container">
+                                        <div class="footer_order">
+                                            <form action="">
+                                                <div class="form_grp form_inline">
+                                                    <label for="username"></label>
+                                                    <input name="username" type="text" placeholder="請輸入EMAIL" value="請輸入EMAIL">
+                                                    <button>訂閱</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <p class="copyright">Copyright 2020(C)宜蘭縣政府文化局 宜蘭縣圖書館All Rights Reserved.</p>
+                                    </div>
+                                </div>
+                            </footer>
+                            <!-- footer End -->
+                        </div>
+                        <a href="javascript:;" class="scrollToTop">回頁首</a>
+                        <!-- JQ -->
+                        <script src="js/jquery-3.3.1.min.js"></script>
+                        <!-- 外掛 plugin js -->
+                        <script src="vendor/jquery.easing.min.js"></script><!-- ease -->
+                        <script src="vendor/slick/slick.js "></script><!-- slick -->
+                        <script src="vendor/slick/slick-lightbox.js "></script><!-- slick lightbox -->
+                        <script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
+                        <script src="vendor/picturefill/picturefill.min.js" async></script><!-- picturefill -->
+                        <script src="vendor/scrolltable/jquery.scroltable.min.js"></script>
+                        <!-- <script src="vendor/pg_calendar/js/pignose.calendar.full.js"></script> -->
+                        <!-- hyUI -->
+                        <script src="js/hyui.js"></script>
+                        <!-- 客製js -->
+                        <script src="js/customize.js"></script>
+                        <!-- WOW -->
+                        <script src="vendor/wow/wow.min.js"></script>
+                        <script>
+                            // new WOW().init();
+                            wow = new WOW(
+                            {
+                      boxClass:     'wow',      // default
+                      animateClass: 'animated', // default
+                      offset:       0,          // default
+                      mobile:       false,       // default
+                      live:         true        // default
+                  }
+                  )
+                            wow.init();
+                        </script>
+                        <script>
+                            $(function() {
+                                $('.calendar').pignoseCalendar({
+                                    lang: 'ch',
+                                    disabledWeekdays: [1],
+                                    disabledDates: [
+                                    '2019-11-30',
+                                    ],
+                                    scheduleOptions: {
+                                        colors: {
+                                            event: '#f1f1f1',
+                                        }
+                                    },
+                                    schedules: [{
+                                        name: 'event',
+                                        date: '2019-11-16'
+                                    }, {
+                                        name: 'event',
+                                        date: '2019-11-23'
+                                    }],
+
+                                });
+                            });
+                        </script>
+                    </body>
+
+                    </html>
