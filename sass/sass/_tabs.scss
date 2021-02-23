@@ -15,10 +15,10 @@
     h3{
         margin: 1em 0 .5em;
         @include screen('mobile') {
-           margin: .5em 0; 
-       }
-   }
-   &>.tabItem {
+         margin: .5em 0; 
+     }
+ }
+ &>.tabItem {
         //float: left;
         position: relative;
         display:inline-block;
@@ -31,7 +31,7 @@
                 margin-top: 0;
             }
             >a {
-                background: $importantColor;
+                background: $primaryColor;
                 color:#fff;
             }
             &:before{
@@ -48,14 +48,14 @@
                 margin-left: -10px;
                 border-style: solid;
                 border-width: 8px 9px 0 9px;
-                border-color: #dd340e transparent transparent transparent;
+                border-color: $primaryColor transparent transparent transparent;
                 @include screen('mobile') {
-                   bottom:-10px; 
-               }
-           }
-       }
+                 bottom:-10px; 
+             }
+         }
+     }
 
-       @include screen('mobile') {
+     @include screen('mobile') {
         float: none;
         margin: 0;
         &>a {
@@ -90,7 +90,7 @@
                 color:#fff;
             }
             &:hover {
-                background:$importantColor;
+                background:$primaryColor;
                 color:#fff;
             }
         }
@@ -171,10 +171,10 @@
                     padding: .6em 2.4em;
                     color:#333;
                     @include screen('mobile'){
-                       background: #eee; 
-                   }
+                     background: #eee; 
+                 }
 
-                   &:hover {
+                 &:hover {
                     color:#333;
                 }
             }
@@ -202,14 +202,14 @@
                     border-width: 8px 9px 0 9px;
                     border-color: #dd340e transparent transparent transparent;
                     @include screen('mobile') {
-                       bottom:-10px; 
-                   }
-               }
-           }
+                     bottom:-10px; 
+                 }
+             }
+         }
 
-       }
+     }
 
-   }
+ }
 } 
 
 }
