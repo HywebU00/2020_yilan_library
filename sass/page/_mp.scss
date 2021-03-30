@@ -212,9 +212,9 @@
 .category_search_2{
     margin: 0 .5em;
     ul{
-     @include li-reset; 
- }
- li{
+       @include li-reset; 
+   }
+   li{
     display: inline-block;
     margin-bottom: .5em;
     a{
@@ -269,15 +269,18 @@
     font-weight: bold;
     margin-top: 2em;
     @include screen('tablet') {
-       margin-top: .5em; 
-   }
-   @include screen('mobile') {
+     margin-top: .5em; 
+ }
+ @include screen('mobile') {
     position: static;
 }
 select{
     background-color: #fff;
     border:0;
     box-shadow: 0 2px 5px  rgba(0, 0, 0, .3);
+    &:focus{
+        box-shadow: 0 0px 0px 2px $aFocus inset;
+    }
 }
 }
 //最新消息
@@ -290,10 +293,10 @@ select{
     }
 
     .rss{
-        width: 42px;
-        height: 42px;
+        width: 30px;
+        height: 30px;
         position: absolute;
-        top:130px;
+        top:100px;
         right:10px;
         @include screen('tablet') {
             top:103px; 
@@ -301,6 +304,9 @@ select{
         @include screen('mobile') {
             top:30px;
             right:0px; 
+        }
+        a{
+            display: block;
         }
         img{
             width: 100%;
@@ -733,7 +739,7 @@ select{
             display:block;
             &:focus{
                 outline:none;
-                box-shadow: 0px 0px 0px 1px $primaryColor inset;
+                box-shadow: 0px 0px 0px 2px $aFocus inset;
             }
         }
     }
@@ -821,6 +827,7 @@ select{
       -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   }
+
 }
 
 
@@ -938,11 +945,11 @@ select{
                 background: url('../images/h2_bg4.png')no-repeat -80px center;
             }
             &:after{
-             background: url('../images/h2_bg5.png')no-repeat right -80px center; 
-         }
-     }
- }
- .library_select{
+               background: url('../images/h2_bg5.png')no-repeat right -80px center; 
+           }
+       }
+   }
+   .library_select{
     margin: 1em 0 1em;
     @include screen('mobile') {
         display: none;
@@ -961,10 +968,10 @@ select{
             }
         }
         @include screen('mobile') {
-           padding-left: 0; 
-       }
-   }
-   .tabContent{
+         padding-left: 0; 
+     }
+ }
+ .tabContent{
     width: 250px;
     clear: none;
     padding: 0;

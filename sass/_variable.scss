@@ -25,6 +25,7 @@ $color-bg-2: #6e6e6d;
 // 連結顏色
 $aColor: $secondaryColor;
 $aHover: darken($aColor, 10);
+$aFocus:#dd350e;
 
 // 表單focus顏色
 $form-focus: darken($primaryColor, 8); //表單

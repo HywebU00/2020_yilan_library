@@ -9,7 +9,7 @@
                 right: 0;
                 bottom: 0;
                 z-index: 99;
-                @include box-shadow(0px 0px 0px 1px $aHover inset);
+                @include box-shadow(0px 0px 0px 2px $aFocus inset);
             }
         }
     }
@@ -25,7 +25,7 @@
     &:hover, &:focus {
         border: none !important;
         outline:none;
-        box-shadow: 0px 0px 0px 1px $aHover inset;
+        box-shadow: 0px 0px 0px 2px $aFocus inset;
         background-size:100%;
     }
 }
@@ -259,6 +259,7 @@
             &:hover,
             &:focus {
                 border: none !important;
+                box-shadow: 0 0px 0px 2px $aFocus inset;
                 // &:before {
                 //     background: adjust_hue(saturate(lighten($aColor, 7), 18), -17);
                 //     box-shadow: 0px 0px 0px 1px adjust_hue(saturate(lighten($aColor, 7), 18), -17);
