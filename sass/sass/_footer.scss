@@ -66,8 +66,8 @@ footer {
         font-size: .813em;
         color:#fff;
         .container{
-           border-top: 1px solid #638c73;
-           .container{
+         border-top: 1px solid #638c73;
+         .container{
             border: none;
         }
     }
@@ -93,14 +93,14 @@ footer {
         border: none;
         line-height: 1em;
         padding: .75em 2em;
-        &:hover{
-            box-shadow: none;
+        &:hover, &:focus{
+            box-shadow: 0 0px 0px 2px $aFocus;
             background:darken($importantColor, 8);
         }
     }
     @include screen('mobile') {
-       float: none; 
-   }
+     float: none; 
+ }
 }
 
 .footer_link{

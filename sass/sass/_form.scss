@@ -459,7 +459,7 @@ input[type="date"]:focus,
 textarea:focus,
 select:focus {
     border: 1px solid lighten($form-focus, 10);
-    @include box-shadow(0px 0px 0px 2px lighten($form-focus, 10));
+    @include box-shadow(0px 0px 0px 2px $aFocus);
     outline: none;
 }
 
