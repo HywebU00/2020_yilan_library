@@ -144,6 +144,8 @@ body {
         .img-container {
             height: 220px;
             position:relative;
+            background: url('../images/top_bg.jpg')no-repeat center center;
+            background-size: cover;
             @include screen('tablet') {
                 height: 200px;
             }
