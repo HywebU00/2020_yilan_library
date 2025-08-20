@@ -1,36 +1,5 @@
 // 自行加入的JS請寫在這裡
 $(function() {
-    const slider = $('.mpSlider');
-    // 首頁輪播
-    slider.slick({
-        mobileFirst: true,
-        dots: true,
-        arrow: false,
-        infinite: true,
-        speed: 1000,
-        autoplay: true,
-        fade: true,
-        lazyLoaded: true,
-        lazyLoad: 'ondemand',
-        ease: 'ease'
-
-    });
-    const pausePlayBtn = $('<button type="button" class="slick-pause-play-btn" aria-label="暫停輪播"></button>');
-    slider.append(pausePlayBtn);
-    pausePlayBtn.on('click', function() {
-        const btn = $(this);
-        if (btn.hasClass('paused')) {
-            // 如果按鈕是 'paused' 狀態，就播放輪播
-            slider.slick('slickPlay');
-            btn.removeClass('paused');
-            btn.attr('aria-label', '暫停輪播');
-        } else {
-            // 如果按鈕是播放狀態，就暫停輪播
-            slider.slick('slickPause');
-            btn.addClass('paused');
-            btn.attr('aria-label', '播放輪播');
-        }
-    });
 
     // 廣告輪播
     $('.adSlider').slick({
@@ -118,56 +87,7 @@ $(function() {
         }],
     });
 
-//bookSlider2
-    $('.bookSlider2').slick({
-        mobileFirst: true,
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        arrow: false,
-        lazyLoaded: true,
-        lazyLoad: 'ondemand',
-        ease: 'ease',
-        responsive: [{
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 0,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }],
-    });
+
     //燈箱slick+lightBox組合
     $('.cp_slider').slick({
         dots: true,
@@ -306,4 +226,111 @@ $(function() {
         });
 
     });
+});
+
+$(function() {
+    const slider = $('.mpSlider');
+    // 首頁輪播
+    slider.slick({
+        mobileFirst: true,
+        dots: true,
+        arrow: false,
+        infinite: true,
+        speed: 1000,
+        autoplay: true,
+        fade: true,
+        lazyLoaded: true,
+        lazyLoad: 'ondemand',
+        ease: 'ease'
+
+    });
+    const pausePlayBtn = $('<button type="button" class="slick-pause-play-btn" aria-label="暫停"></button>');
+    slider.append(pausePlayBtn);
+    pausePlayBtn.on('click', function() {
+        const btn = $(this);
+        if (btn.hasClass('paused')) {
+            // 如果按鈕是 'paused' 狀態，就播放輪播
+            slider.slick('slickPlay');
+            btn.removeClass('paused');
+            btn.attr('aria-label', '暫停');
+        } else {
+            // 如果按鈕是播放狀態，就暫停輪播
+            slider.slick('slickPause');
+            btn.addClass('paused');
+            btn.attr('aria-label', '播放');
+        }
+    });
+
+});
+
+$(function() {
+    const slider = $('.bookSlider2');
+    //bookSlider2
+    $('.bookSlider2').slick({
+        mobileFirst: true,
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        arrow: false,
+        lazyLoaded: true,
+        lazyLoad: 'ondemand',
+        ease: 'ease',
+        responsive: [{
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 0,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }],
+    });
+
+    const pausePlayBtn = $('<button type="button" class="slick-pause-play-btn" aria-label="暫停"></button>');
+    slider.append(pausePlayBtn);
+    pausePlayBtn.on('click', function() {
+        const btn = $(this);
+        if (btn.hasClass('paused')) {
+            // 如果按鈕是 'paused' 狀態，就播放輪播
+            slider.slick('slickPlay');
+            btn.removeClass('paused');
+            btn.attr('aria-label', '暫停');
+        } else {
+            // 如果按鈕是播放狀態，就暫停輪播
+            slider.slick('slickPause');
+            btn.addClass('paused');
+            btn.attr('aria-label', '播放');
+        }
+    });
+
 });

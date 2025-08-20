@@ -256,6 +256,7 @@
     padding:6px;
     background: #fff;
     box-shadow: 0 0 10px rgba(121, 102, 84, .3);
+    position: relative;
     @include screen('mobile') {
         margin-top: 3em;
     }
@@ -304,6 +305,69 @@
     }
 
 }
+/* 播放/暫停按鈕的基礎樣式 */
+.slick-pause-play-btn {
+    /* 定位 */
+    position: absolute;
+    top: 20px; /* 與 slick-dots 的 bottom 對齊 */
+    right: 20px;   /* 放在右側，可以自行調整 */
+    z-index: 10;   /* 確保在圖片上方 */
+
+    /* 尺寸與外觀 */
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    min-width: auto;
+    background: rgba(255,255,255,.8);
+    border-radius: 3px;
+        // background-color: transparent;
+        cursor: pointer;
+        outline: none; /* 移除點擊時的藍色外框 */
+    }
+    .slick-pause-play-btn:focus-visible{
+        outline:2px solid #c00!important;
+    }
+
+    /* 使用偽元素創建「暫停」圖示 (兩條直線) */
+    .slick-pause-play-btn::before,
+    .slick-pause-play-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;   /* 直線的寬度 */
+        height: 14px; /* 直線的高度 */
+        background-color: #333; /* 圖示顏色 */
+        transition: all 0.3s ease;
+    }
+
+    .slick-pause-play-btn::before {
+        left: 6px; /* 左邊直線的位置 */
+    }
+
+    .slick-pause-play-btn::after {
+        right: 6px; /* 右邊直線的位置 */
+    }
+
+    /* 當按鈕擁有 .paused class 時，變為「播放」圖示 (三角形) */
+    .slick-pause-play-btn.paused::before {
+        /* 透過 border 技巧繪製三角形 */
+        width: 0;
+        height: 0;
+        left: 8px;
+        transform: translateY(-50%);
+        background-color: transparent; /* 隱藏原本的背景色 */
+        border-style: solid;
+        border-width: 7px 0 7px 12px; /* 上 下 左 的 border 寬度 */
+        border-color: transparent transparent transparent #333; /* 只有左邊 border 有顏色 */
+    }
+
+    /* 當按鈕擁有 .paused class 時，隱藏右邊的直線 */
+    .slick-pause-play-btn.paused::after {
+        opacity: 0;
+        transform: translateY(-50%) scale(0);
+    }
 }
 //
 .cp_slider{
