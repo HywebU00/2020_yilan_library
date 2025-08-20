@@ -223,7 +223,7 @@ $(function() {
     });
     // 固定版頭
      // hh = Math.floor($('.header').outerHeight(true));
-     if ($('header .menu').length > 0) {
+    if ($('header .menu').length > 0) {
         var stickyMenuTop = Math.floor($('header .menu').offset().top);
         console.log(stickyMenuTop);
         hh = Math.floor($('.header').outerHeight(true));
@@ -269,23 +269,59 @@ $(function() {
     /*-----------------------------------*/
     /////////////fatfooter開關/////////////
     /*-----------------------------------*/
-    var fatfooter_h = Math.floor($('.fatfooter nav').innerHeight());
-    $(".btn-fatfooter").css('width', fatfooter_h);
+    // var fatfooter_h = Math.floor($('.fatfooter nav').innerHeight());
+    // $(".btn-fatfooter").css('width', fatfooter_h);
 
-    $('.btn-fatfooter').click(function(e) {
-        $(this).parent('.container').find('nav>ul>li>ul').stop(true, true).slideToggle(function() {
-            if ($(this).is(':visible')) {
-                $('.btn-fatfooter').html("CLOSE");
-                $('.btn-fatfooter').attr('name', '收合選單/CLOSE');
-                $('.btn-fatfooter').css('width', fatfooter_h);
+    // $('.btn-fatfooter').click(function(e) {
+    //     $(this).parent('.container').find('nav>ul>li>ul').stop(true, true).slideToggle(function() {
+    //         if ($(this).is(':visible')) {
+    //             $('.btn-fatfooter').html("CLOSE");
+    //             $('.btn-fatfooter').attr('name', '收合選單/CLOSE');
+    //             $('.btn-fatfooter').css('width', fatfooter_h);
+    //         } else {
+    //             $('.btn-fatfooter').html("OPEN");
+    //             $('.btn-fatfooter').attr('name', '展開選單/OPEN');
+    //             //$('.close').css('width', '80px');
+    //         }
+    //     });
+    //     $(this).stop(true, true).toggleClass('close');
+    // });
+
+    const $fatFooterBtn = $('.btn-fatfooter');
+    const $fatFooterNav = $fatFooterBtn.closest('.container').find('nav>ul>li>ul');
+
+    const fatfooter_h = Math.floor($('.fatfooter nav').innerHeight());
+    
+    $fatFooterBtn.css('--btn-width', fatfooter_h + 'px');
+
+    const isInitiallyVisible = $fatFooterNav.is(':visible');
+    $fatFooterBtn.attr('aria-expanded', isInitiallyVisible);
+    const navId = 'fatfooter-nav-content';
+    $fatFooterNav.attr('id', navId);
+    $fatFooterBtn.attr('aria-controls', navId);
+
+    $fatFooterBtn.on('click', function() {
+        $(this).toggleClass('close');
+
+        $fatFooterNav.stop(true, true).slideToggle(function() {
+            const isVisible = $(this).is(':visible');
+
+            if (isVisible) {
+                $fatFooterBtn.html("CLOSE");
+                $fatFooterBtn.attr('name', '收合選單/CLOSE');
+
+                $fatFooterBtn.css('--btn-width', fatfooter_h + 'px');
             } else {
-                $('.btn-fatfooter').html("OPEN");
-                $('.btn-fatfooter').attr('name', '展開選單/OPEN');
-                //$('.close').css('width', '80px');
+                $fatFooterBtn.html("OPEN");
+                $fatFooterBtn.attr('name', '展開選單/OPEN');
+
+                $fatFooterBtn.css('--btn-width', ''); 
             }
+
+            $fatFooterBtn.attr('aria-expanded', isVisible);
         });
-        $(this).stop(true, true).toggleClass('close');
     });
+
     /*-----------------------------------*/
     //////////////相簿燈箱//////////////
     /*-----------------------------------*/
@@ -461,23 +497,82 @@ $(function() {
     /*-----------------------------------*/
     ///////////////置頂go to top////////////
     /*-----------------------------------*/
-    $(window).bind('scroll', function() {
-        if ($(this).scrollTop() > 200) {
-            $('.scrollToTop').fadeIn();
-        } else {
-            $('.scrollToTop').fadeOut();
-        }
-    });
+    // $(window).bind('scroll', function() {
+    //     if ($(this).scrollTop() > 200) {
+    //         $('.scrollToTop').fadeIn();
+    //     } else {
+    //         $('.scrollToTop').fadeOut();
+    //     }
+    // });
     /*-----------------------------------*/
     /////click event to scroll to top//////
     /*-----------------------------------*/
-    $('.scrollToTop').click(function(e) {
-        $('html, body').animate({ scrollTop: 0 }, 400, 'easeOutExpo');
+    // $('.scrollToTop').click(function(e) {
+    //     $('html, body').animate({ scrollTop: 0 }, 400, 'easeOutExpo');
+    //     e.preventDefault();
+    // });
+    // $('.scrollToTop').keydown(function(e) {
+    //     _body.find('a:first').focus();
+    //     e.preventDefault();
+    // });
+    const SCROLL_THRESHOLD = 200;
+    const ANIMATION_DURATION = 400;
+
+    const $window = $(window);
+    const $htmlBody = $('html, body');
+    const $scrollToTopLink = $('.scrollToTop');
+
+    if ($scrollToTopLink.length === 0) {
+        return;
+    }
+
+    $scrollToTopLink
+    .attr('role', 'button') 
+    .attr('aria-hidden', 'true')
+    .hide(); 
+
+    const showButton = () => {
+        $scrollToTopLink.stop(true).fadeIn().attr('aria-hidden', 'false');
+    };
+
+    const hideButton = () => {
+        $scrollToTopLink.stop(true).fadeOut().attr('aria-hidden', 'true');
+    };
+
+    let scrollTimeout;
+    const handleScroll = () => {
+        if (!scrollTimeout) {
+            scrollTimeout = setTimeout(() => {
+                if ($window.scrollTop() > SCROLL_THRESHOLD) {
+                    showButton();
+                } else {
+                    hideButton();
+                }
+                scrollTimeout = null;
+            }, 150);
+        }
+    };
+
+    $window.on('scroll', handleScroll);
+
+    const scrollToTopAction = () => {
+        $htmlBody.animate({ scrollTop: 0 }, ANIMATION_DURATION, 'swing', function() {
+
+            $('body').find('a, button, input, [tabindex]').filter(':visible').first().focus();
+        });
+    };
+
+    $scrollToTopLink.on('click', function(e) {
         e.preventDefault();
+        scrollToTopAction();
     });
-    $('.scrollToTop').keydown(function(e) {
-        _body.find('a:first').focus();
-        e.preventDefault();
+
+    $scrollToTopLink.on('keydown', function(e) {
+
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToTopAction();
+        }
     });
     /*--------------------------------------------------------*/
     /////設定img 在IE9+ SAFARI FIREFOX CHROME 可以object-fit/////

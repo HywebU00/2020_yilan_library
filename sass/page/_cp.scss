@@ -639,5 +639,13 @@ div.tag {
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        a{
+            display: block;
+            &:focus{
+                outline:none;
+                box-shadow: none;
+                border:$aFocus solid 2px;
+            }
+        }
     }
 }
